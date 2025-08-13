@@ -1,0 +1,422 @@
+/* ================================
+   myBlueprint Career Launch - Responsive Styles
+   Mobile-first approach with exact breakpoints
+   ================================ */
+
+/* ================================
+   MOBILE (BASE STYLES: 320px+)
+   Default styles are mobile-first
+   ================================ */
+
+/* Mobile-specific adjustments */
+@media (max-width: 767px) {
+    /* Remove fixed attachment for performance on mobile */
+    body {
+        background-attachment: scroll;
+    }
+    
+    /* Logo adjustments for mobile */
+    .logo {
+        top: 16px;
+        left: 16px;
+        height: 36px;
+    }
+    
+    /* Main container mobile spacing */
+    .main-container {
+        padding: 60px 20px 32px;
+        max-width: 100%;
+    }
+    
+    /* Typography - Mobile sizes */
+    .hero-headline {
+        font-size: 28px;
+    }
+    
+    .event-date {
+        font-size: 18px;
+    }
+    
+    .student-count {
+        font-size: 16px;
+    }
+    
+    .supporting-text {
+        font-size: 15px;
+        margin-bottom: 32px;
+    }
+    
+    /* Form adjustments for mobile */
+    .form-container {
+        padding: 24px;
+        margin: 0 auto;
+    }
+    
+    .form-title {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+    
+    /* Touch targets - minimum 44px */
+    .form-input {
+        min-height: 48px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .cta-button {
+        min-height: 48px;
+        font-size: 16px;
+    }
+}
+
+/* ================================
+   SMALL MOBILE (320px - 374px)
+   Extra small screen adjustments
+   ================================ */
+
+@media (max-width: 374px) {
+    .main-container {
+        padding: 60px 16px 24px;
+    }
+    
+    .hero-headline {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+    
+    .event-date {
+        font-size: 16px;
+    }
+    
+    .student-count {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+    
+    .form-container {
+        padding: 20px;
+    }
+    
+    .form-title {
+        font-size: 18px;
+    }
+}
+
+/* ================================
+   TABLET (768px - 1023px)
+   ================================ */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Logo */
+    .logo {
+        top: 20px;
+        left: 20px;
+        height: 38px;
+    }
+    
+    /* Main container */
+    .main-container {
+        padding: 80px 40px 40px;
+    }
+    
+    /* Typography - Tablet sizes */
+    .hero-headline {
+        font-size: 32px;
+    }
+    
+    .event-date {
+        font-size: 20px;
+    }
+    
+    .student-count {
+        font-size: 18px;
+    }
+    
+    .supporting-text {
+        font-size: 16px;
+    }
+    
+    /* Form */
+    .form-container {
+        padding: 28px;
+    }
+    
+    .form-title {
+        font-size: 21px;
+    }
+}
+
+/* ================================
+   TABLET LANDSCAPE (768px+)
+   Specific adjustments for landscape orientation
+   ================================ */
+
+@media (min-width: 768px) and (orientation: landscape) and (max-height: 600px) {
+    .main-container {
+        padding: 40px 40px 20px;
+        justify-content: flex-start;
+        padding-top: 60px;
+    }
+    
+    .hero-headline {
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+    
+    .event-date {
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+    
+    .student-count {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .supporting-text {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+}
+
+/* ================================
+   DESKTOP (1024px+)
+   ================================ */
+
+@media (min-width: 1024px) {
+    /* Enable fixed background attachment */
+    body {
+        background-attachment: fixed;
+    }
+    
+    /* Logo */
+    .logo {
+        top: 24px;
+        left: 24px;
+        height: 40px;
+    }
+    
+    /* Main container */
+    .main-container {
+        padding: 80px 24px 40px;
+    }
+    
+    /* Typography - Desktop sizes (default) */
+    .hero-headline {
+        font-size: 40px;
+    }
+    
+    .event-date {
+        font-size: 24px;
+    }
+    
+    .student-count {
+        font-size: 20px;
+    }
+    
+    .supporting-text {
+        font-size: 16px;
+    }
+    
+    /* Form */
+    .form-container {
+        padding: 32px;
+    }
+    
+    .form-title {
+        font-size: 22px;
+    }
+    
+    /* Enhanced hover effects for desktop */
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 146, 255, 0.4);
+    }
+}
+
+/* ================================
+   LARGE DESKTOP (1440px+)
+   ================================ */
+
+@media (min-width: 1440px) {
+    /* Larger spacing for very large screens */
+    .main-container {
+        padding: 100px 24px 60px;
+    }
+    
+    /* Slightly larger typography on very large screens */
+    .hero-headline {
+        font-size: 44px;
+        margin-bottom: 20px;
+    }
+    
+    .event-date {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+    
+    .student-count {
+        font-size: 22px;
+        margin-bottom: 36px;
+    }
+    
+    .supporting-text {
+        font-size: 18px;
+        margin-bottom: 44px;
+        max-width: 520px;
+    }
+    
+    .form-container {
+        padding: 36px;
+    }
+    
+    .form-title {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+}
+
+/* ================================
+   ULTRA-WIDE SCREENS (1920px+)
+   ================================ */
+
+@media (min-width: 1920px) {
+    .main-container {
+        padding: 120px 24px 80px;
+        max-width: 700px;
+    }
+    
+    .supporting-text {
+        max-width: 560px;
+    }
+}
+
+/* ================================
+   HIGH DPI / RETINA DISPLAYS
+   ================================ */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Ensure crisp rendering on high DPI displays */
+    .logo {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+    
+    /* Slightly thinner borders on high DPI */
+    .form-input {
+        border-width: 1.5px;
+    }
+    
+    .form-input:focus {
+        border-width: 1.5px;
+    }
+}
+
+/* ================================
+   PRINT STYLES
+   ================================ */
+
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .logo,
+    .form-container,
+    .cta-button {
+        display: none;
+    }
+    
+    .hero-headline,
+    .event-date,
+    .student-count,
+    .supporting-text {
+        color: black;
+    }
+}
+
+/* ================================
+   DEVICE-SPECIFIC OPTIMIZATIONS
+   ================================ */
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+    .form-input {
+        /* Prevent zoom on focus in iOS Safari */
+        font-size: 16px;
+    }
+    
+    /* Fix for iOS Safari viewport units */
+    .main-container {
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Android Chrome specific optimizations */
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+    .form-input {
+        /* Better rendering on Android Chrome */
+        -webkit-appearance: none;
+        border-radius: 8px;
+    }
+}
+
+/* ================================
+   ACCESSIBILITY RESPONSIVE FEATURES
+   ================================ */
+
+/* Large text mode */
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+    .form-messages {
+        animation: slideIn 0.3s ease-out;
+    }
+    
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* Ensure minimum touch targets on all screen sizes */
+@media (pointer: coarse) {
+    .cta-button,
+    .form-input {
+        min-height: 48px;
+    }
+    
+    .logo {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Hover-capable devices only */
+@media (hover: hover) and (pointer: fine) {
+    .cta-button:hover {
+        transition: all 0.2s ease;
+    }
+    
+    .form-input:hover {
+        border-color: var(--primary-blue);
+    }
+}
+
+/* Dark mode support (if user prefers dark color scheme) */
+@media (prefers-color-scheme: dark) {
+    /* Enhance contrast for dark mode users */
+    .form-container {
+        background: rgba(246, 246, 255, 0.98);
+    }
+    
+    .hero-headline,
+    .supporting-text {
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+}

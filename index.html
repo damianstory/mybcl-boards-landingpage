@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join myBlueprint Career Launch - Virtual career fair with 50,000+ students. Get notified when the agenda is released for December 2nd.">
+    <meta name="keywords" content="career fair, virtual event, students, education, myBlueprint, December 2nd">
+    
+    <title>myBlueprint Career Launch - December 2nd | Get Notified</title>
+    
+    <!-- Preconnect to font sources for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Font loading with fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS inlined for performance -->
+    <style>
+        /* CSS Custom Properties - Brand Colors */
+        :root {
+            --primary-blue: #0092FF;
+            --navy: #22224C;
+            --light-blue: #C6E7FF;
+            --off-white: #F6F6FF;
+            --neutral-1: #E5E9F1;
+            --neutral-2: #D9DFEA;
+            --neutral-3: #AAB7CB;
+            --neutral-4: #65738B;
+            --neutral-5: #485163;
+            --neutral-6: #252A33;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(
+                135deg,
+                rgba(34, 36, 76, 0.7) 0%,
+                rgba(34, 36, 76, 0.5) 100%
+            ), url('images/bg-placeholder.svg') center/cover no-repeat fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Logo positioning */
+        .logo {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            z-index: 3;
+            height: 40px;
+            width: auto;
+        }
+
+        /* Main content container */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 80px 24px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            z-index: 3;
+        }
+
+        /* Typography */
+        .hero-headline {
+            font-size: 40px;
+            line-height: 1.2;
+            font-weight: 900;
+            color: var(--off-white);
+            text-align: center;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .event-date {
+            font-size: 24px;
+            line-height: 1.3;
+            font-weight: 900;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .student-count {
+            font-size: 20px;
+            line-height: 1.4;
+            font-weight: 500;
+            color: var(--light-blue);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .supporting-text {
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: 300;
+            color: var(--neutral-1);
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    
+    <!-- External stylesheets -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    
+    <!-- Favicon placeholder -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+    <!-- Logo -->
+    <header>
+        <img src="images/logo.svg" alt="myBlueprint Career Education Platform" class="logo">
+    </header>
+
+    <!-- Main Content -->
+    <main role="main" class="main-container">
+        <section aria-labelledby="event-title">
+            <!-- Hero Content -->
+            <h1 id="event-title" class="hero-headline">myBlueprint Career Launch</h1>
+            <h2 class="event-date">December 2nd</h2>
+            <p class="student-count">Join 50,000+ students exploring career opportunities</p>
+            <p class="supporting-text">
+                Don't miss this exclusive virtual career fair connecting students with innovative career paths. 
+                Be the first to know when our comprehensive agenda is released.
+            </p>
+
+            <!-- Email Capture Form -->
+            <form id="email-form" class="email-form" aria-labelledby="form-title" role="form" novalidate>
+                <div class="form-container">
+                    <h3 id="form-title" class="form-title">Get Notified When the Agenda is Released</h3>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label visually-hidden">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="form-input" 
+                            placeholder="Enter your email address"
+                            required 
+                            aria-describedby="email-help email-error"
+                            autocomplete="email"
+                        >
+                        <div id="email-help" class="form-help">We'll notify you as soon as the agenda is available</div>
+                        <div id="email-error" class="form-error" role="alert" aria-live="polite"></div>
+                    </div>
+                    
+                    <button type="submit" class="cta-button" aria-describedby="button-help">
+                        <span class="button-text">Notify Me</span>
+                        <span class="loading-spinner" aria-hidden="true"></span>
+                    </button>
+                    <div id="button-help" class="button-help">Click to receive agenda notifications</div>
+                </div>
+                
+                <!-- Success/Error Messages -->
+                <div id="form-messages" class="form-messages" role="status" aria-live="polite" aria-atomic="true"></div>
+            </form>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/validation.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Schema.org structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "myBlueprint Career Launch",
+        "startDate": "2024-12-02",
+        "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": {
+            "@type": "VirtualLocation",
+            "url": "https://myblueprint.ca"
+        },
+        "organizer": {
+            "@type": "Organization",
+            "name": "myBlueprint",
+            "url": "https://myblueprint.ca"
+        },
+        "description": "Virtual career fair connecting 50,000+ students with innovative career opportunities",
+        "audience": {
+            "@type": "EducationalAudience",
+            "educationalRole": "student"
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient representing professional environment -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#485163;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#65738B;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#AAB7CB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D9DFEA;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Pattern for subtle texture -->
+    <pattern id="texture" patternUnits="userSpaceOnUse" width="100" height="100">
+      <rect width="100" height="100" fill="url(#bgGradient)"/>
+      <circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/>
+      <circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/>
+    </pattern>
+  </defs>
+  
+  <!-- Main background -->
+  <rect width="1920" height="1080" fill="url(#texture)"/>
+  
+  <!-- Abstract shapes representing career paths/professional environment -->
+  <g opacity="0.2" fill="rgba(255,255,255,0.1)">
+    <!-- Network/connection lines -->
+    <line x1="200" y1="300" x2="800" y2="200" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+    <line x1="400" y1="500" x2="1200" y2="300" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+    <line x1="600" y1="700" x2="1400" y2="500" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+    
+    <!-- Abstract building/office shapes -->
+    <rect x="1400" y="400" width="200" height="400" fill="rgba(255,255,255,0.1)"/>
+    <rect x="1450" y="350" width="100" height="450" fill="rgba(255,255,255,0.15)"/>
+    
+    <!-- Career ladder representation -->
+    <g transform="translate(300, 600)">
+      <rect x="0" y="0" width="40" height="300" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="3"/>
+      <rect x="60" y="0" width="40" height="300" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="3"/>
+      <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+      <line x1="0" y1="150" x2="100" y2="150" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+      <line x1="0" y1="250" x2="100" y2="250" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+    </g>
+  </g>
+  
+  <!-- Overlay text indicating this is a placeholder -->
+  <g transform="translate(960, 540)" text-anchor="middle">
+    <rect x="-300" y="-50" width="600" height="100" fill="rgba(34, 36, 76, 0.8)" rx="10"/>
+    <text y="-10" font-family="'Museo Sans', sans-serif" font-size="24" font-weight="500" fill="#F6F6FF">
+      Background Image Placeholder
+    </text>
+    <text y="20" font-family="'Museo Sans', sans-serif" font-size="16" font-weight="300" fill="#C6E7FF">
+      Replace with diverse professionals in career settings
+    </text>
+  </g>
+</svg>

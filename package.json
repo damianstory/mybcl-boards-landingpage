@@ -1,0 +1,22 @@
+{
+  "name": "myblueprint-career-launch-landing",
+  "version": "1.0.0",
+  "description": "Landing page for myBlueprint Career Launch virtual career fair event",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 3000",
+    "start": "python3 -m http.server 8080",
+    "build": "echo 'Production build - optimizing files...' && node build.js",
+    "test": "echo 'Running form validation tests...' && node test/form-validation.test.js"
+  },
+  "keywords": [
+    "landing-page",
+    "career-fair",
+    "education",
+    "myblueprint"
+  ],
+  "author": "myBlueprint",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}

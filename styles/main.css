@@ -1,0 +1,418 @@
+/* ================================
+   myBlueprint Career Launch - Main Styles
+   Brand-compliant CSS following design specs
+   ================================ */
+
+/* CSS Custom Properties - Brand Colors */
+:root {
+    /* Primary Colors */
+    --primary-blue: #0092FF;
+    --navy: #22224C;
+    --light-blue: #C6E7FF;
+    --off-white: #F6F6FF;
+    
+    /* Neutrals */
+    --neutral-1: #E5E9F1;
+    --neutral-2: #D9DFEA;
+    --neutral-3: #AAB7CB;
+    --neutral-4: #65738B;
+    --neutral-5: #485163;
+    --neutral-6: #252A33;
+    
+    /* Typography */
+    --font-primary: 'Museo Sans', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-fallback: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    
+    /* Z-index layers */
+    --z-background: 1;
+    --z-overlay: 2;
+    --z-content: 3;
+    --z-form: 4;
+    --z-loading: 5;
+}
+
+/* ================================
+   BASE STYLES & RESET
+   ================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.5;
+    color: var(--neutral-4);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================================
+   BACKGROUND & LAYOUT
+   ================================ */
+
+body {
+    background: linear-gradient(
+        135deg,
+        rgba(34, 36, 76, 0.7) 0%,
+        rgba(34, 36, 76, 0.5) 100%
+    ), url('../images/bg-placeholder.svg') center/cover no-repeat fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Production background images (replace bg-placeholder.svg with these) */
+/* 
+body {
+    background: linear-gradient(
+        135deg,
+        rgba(34, 36, 76, 0.7) 0%,
+        rgba(34, 36, 76, 0.5) 100%
+    ), url('../images/bg-hero.webp') center/cover no-repeat fixed;
+}
+
+@supports not (background-image: url('../images/bg-hero.webp')) {
+    body {
+        background: linear-gradient(
+            135deg,
+            rgba(34, 36, 76, 0.7) 0%,
+            rgba(34, 36, 76, 0.5) 100%
+        ), url('../images/bg-hero.jpg') center/cover no-repeat fixed;
+    }
+}
+*/
+
+/* ================================
+   LOGO
+   ================================ */
+
+.logo {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: var(--z-content);
+    height: 40px;
+    width: auto;
+    transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+    opacity: 0.9;
+}
+
+/* ================================
+   MAIN CONTAINER
+   ================================ */
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 80px 24px 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    z-index: var(--z-content);
+}
+
+/* ================================
+   TYPOGRAPHY - EXACT BRAND SPECS
+   ================================ */
+
+.hero-headline {
+    font-family: var(--font-primary);
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 900;
+    color: var(--off-white);
+    text-align: center;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+}
+
+.event-date {
+    font-family: var(--font-primary);
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: 900;
+    color: var(--primary-blue);
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.student-count {
+    font-family: var(--font-primary);
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: var(--light-blue);
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.supporting-text {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 300;
+    color: var(--neutral-1);
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ================================
+   FORM STYLES - EXACT DESIGN SPECS
+   ================================ */
+
+.email-form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-container {
+    background: rgba(246, 246, 255, 0.95);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 8px 32px rgba(34, 36, 76, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: var(--z-form);
+}
+
+.form-title {
+    font-family: var(--font-primary);
+    font-size: 22px;
+    line-height: 1.3;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 16px;
+    position: relative;
+}
+
+/* Visually hidden label for accessibility */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.form-input {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid var(--neutral-2);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: var(--font-primary);
+    background: var(--off-white);
+    color: var(--navy);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: var(--neutral-3);
+    font-weight: 300;
+}
+
+.form-input:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(0, 146, 255, 0.1);
+}
+
+.form-input:invalid {
+    border-color: var(--neutral-6);
+}
+
+.form-help {
+    font-size: 12px;
+    color: var(--neutral-4);
+    margin-top: 4px;
+    text-align: left;
+}
+
+.form-error {
+    color: var(--neutral-6);
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 500;
+    text-align: left;
+    min-height: 16px;
+}
+
+/* ================================
+   CTA BUTTON - EXACT DESIGN SPECS
+   ================================ */
+
+.cta-button {
+    width: 100%;
+    padding: 16px 32px;
+    background: var(--primary-blue);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.02em;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta-button:hover {
+    background: #0078CC;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 146, 255, 0.3);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+    background: #006BB3;
+}
+
+.cta-button:focus {
+    box-shadow: 0 0 0 3px rgba(0, 146, 255, 0.3);
+}
+
+.cta-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Loading state */
+.cta-button.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.loading-spinner {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top: 2px solid #FFFFFF;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 8px;
+}
+
+.cta-button.loading .loading-spinner {
+    display: inline-block;
+}
+
+.cta-button.loading .button-text {
+    opacity: 0.7;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.button-help {
+    font-size: 12px;
+    color: var(--neutral-4);
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* ================================
+   FORM MESSAGES (SUCCESS/ERROR)
+   ================================ */
+
+.form-messages {
+    margin-top: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.form-messages.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.form-messages.success {
+    background: rgba(198, 231, 255, 0.95);
+    border: 2px solid var(--primary-blue);
+    color: var(--navy);
+}
+
+.form-messages.error {
+    background: rgba(252, 165, 165, 0.95);
+    border: 2px solid #EF4444;
+    color: var(--neutral-6);
+}
+
+/* ================================
+   ACCESSIBILITY ENHANCEMENTS
+   ================================ */
+
+/* Focus indicators for keyboard navigation */
+a:focus,
+button:focus,
+input:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .form-input {
+        border-width: 3px;
+    }
+    
+    .cta-button {
+        border: 2px solid #FFFFFF;
+    }
+}
