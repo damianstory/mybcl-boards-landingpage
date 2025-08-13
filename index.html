@@ -117,17 +117,6 @@
             margin-bottom: 32px;
         }
 
-        .supporting-text {
-            font-size: 16px;
-            line-height: 1.5;
-            font-weight: 300;
-            color: var(--neutral-1);
-            text-align: center;
-            margin-bottom: 40px;
-            max-width: 720px;
-            margin-left: auto;
-            margin-right: auto;
-        }
     </style>
     
     <!-- External stylesheets -->
@@ -228,11 +217,90 @@
             <h1 id="event-title" class="hero-headline">myBlueprint Career Launch</h1>
             <h2 class="event-date">December 2nd</h2>
             <p class="student-count">Join 50,000+ students exploring career opportunities</p>
-            <p class="supporting-text">
-                About 50% of today's students expect to work in just 10 traditional jobs - doctor, teacher, lawyer, engineer - while career opportunities have never been more diverse. The OECD's landmark research shows that 'you cannot be what you cannot see,' and right now, students aren't seeing your industry.
+            <!-- Bento Grid Section -->
+            <section class="bento-grid" role="region" aria-label="Event details and information">
+                <!-- Event Details Card (Left - 1/3) -->
+                <div class="bento-card event-details-card" role="article" aria-labelledby="event-details-title">
+                    <h3 id="event-details-title" class="event-details-heading">Event Details</h3>
+                    
+                    <!-- Date Info -->
+                    <div class="event-detail-item">
+                        <div class="event-detail-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+                                <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
+                                <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="event-detail-content">
+                            <div class="event-detail-title">December 2, 2025</div>
+                            <div class="event-detail-subtitle">Full-day virtual event with extended on-demand access</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Student Count -->
+                    <div class="event-detail-item">
+                        <div class="event-detail-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="event-detail-content">
+                            <div class="event-detail-title">50,000+ Students</div>
+                            <div class="event-detail-subtitle">From up to 72 school boards across Ontario</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Virtual Format -->
+                    <div class="event-detail-item">
+                        <div class="event-detail-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2"/>
+                                <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="event-detail-content">
+                            <div class="event-detail-title">Virtual Format</div>
+                            <div class="event-detail-subtitle">Accessible from anywhere, with recordings shared to our community of 1+ million students nationally</div>
+                        </div>
+                    </div>
+                </div>
 
-With career uncertainty at an all-time high and student expectations 3x greater than actual job demand in professional fields, young people need your voice. Research proves that direct employer engagement leads to better employment outcomes at age 25.
-            </p>
+                <!-- Right Content Container (2/3) -->
+                <div class="bento-right-column">
+                    <!-- About Text Card -->
+                    <div class="bento-card content-card" role="article" aria-labelledby="about-content-title">
+                        <div class="content-text">
+                            <p><strong>About 50% of today's students expect to work in just 10 traditional jobs</strong> - doctor, teacher, lawyer, engineer - while career opportunities have never been more diverse. The OECD's landmark research shows that 'you cannot be what you cannot see,' and <a href="#" class="content-link">right now, students aren't seeing your industry</a>.</p>
+                            
+                            <p>With career uncertainty at an all-time high and student expectations 3x greater than actual job demand in professional fields, young people need your voice. Research proves that direct employer engagement leads to better employment outcomes at age 25.</p>
+                            
+                            <p>Speak at the <strong class="brand-highlight">myBlueprint Career Launch</strong> to help Ontario's students discover the meaningful careers, emerging technologies, and non-traditional pathways that exist in your sector.</p>
+                        </div>
+                    </div>
+
+                    <!-- YouTube Video Card -->
+                    <div class="bento-card bento-card-video" role="article" aria-labelledby="video-title">
+                        <h3 id="video-title" class="visually-hidden">myBlueprint Career Launch Preview Video</h3>
+                        <div class="video-container">
+                            <iframe 
+                                src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" 
+                                title="myBlueprint Career Launch - Event Preview"
+                                frameborder="0" 
+                                allowfullscreen
+                                loading="lazy"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- Email Capture Form -->
             <form id="email-form" class="email-form" aria-label="Email signup form" role="form" novalidate>

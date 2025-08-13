@@ -344,20 +344,188 @@ body {
     animation: contentFadeUp 1s ease-out 1.1s forwards;
 }
 
-.supporting-text {
-    font-family: var(--font-primary);
-    font-size: 18px;
-    line-height: 1.6;
-    font-weight: 400;
-    color: var(--neutral-1);
-    text-align: center;
-    margin-bottom: 48px;
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+/* ================================
+   BENTO GRID SECTION - 2:1 LAYOUT
+   ================================ */
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 1:2 ratio */
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px; /* Wider container */
+    margin: 0 auto 48px auto;
     opacity: 0;
     animation: contentFadeUp 1s ease-out 1.2s forwards;
+}
+
+.bento-card {
+    background: rgba(246, 246, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 
+        0 8px 32px rgba(34, 36, 76, 0.15),
+        0 4px 12px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(0, 146, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 200px;
+}
+
+.bento-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 12px 40px rgba(34, 36, 76, 0.2),
+        0 6px 18px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(0, 146, 255, 0.2);
+    background: rgba(246, 246, 255, 0.98);
+}
+
+/* Event Details Card (Left Column) */
+.event-details-card {
+    position: relative;
+    padding: 28px 24px;
+    border-left: 4px solid var(--primary-blue); /* Blue accent bar */
+    align-items: flex-start;
+    text-align: left;
+}
+
+.event-details-heading {
+    font-family: var(--font-primary);
+    font-size: 22px;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.event-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.event-detail-item:last-child {
+    margin-bottom: 0;
+}
+
+.event-detail-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 146, 255, 0.1);
+    border-radius: 8px;
+    flex-shrink: 0;
+    color: var(--primary-blue);
+}
+
+.event-detail-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.event-detail-content {
+    flex: 1;
+    padding-top: 2px;
+}
+
+.event-detail-title {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+}
+
+.event-detail-subtitle {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: var(--neutral-4);
+}
+
+/* Right Column Container */
+.bento-right-column {
+    display: grid;
+    grid-template-rows: 2fr 1fr; /* Content card larger, video smaller */
+    gap: 20px;
+}
+
+/* Content Card (Top of Right Column) */
+.content-card {
+    padding: 28px;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.content-text {
+    width: 100%;
+}
+
+.content-text p {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--neutral-4);
+    margin-bottom: 16px;
+}
+
+.content-text p:last-child {
+    margin-bottom: 0;
+}
+
+.content-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.content-link:hover {
+    text-decoration: underline;
+}
+
+.brand-highlight {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+/* Video Card (Bottom of Right Column) */
+.bento-card-video {
+    padding: 0;
+    overflow: hidden;
+    min-height: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    background: var(--neutral-6);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
 }
 
 /* ================================

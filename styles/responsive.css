@@ -82,10 +82,78 @@
         margin-bottom: 28px;
     }
     
-    .supporting-text {
-        font-size: 16px;
+    /* Bento Grid - Mobile Layout (Stack Vertically) */
+    .bento-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
         margin-bottom: 36px;
         max-width: 100%;
+    }
+    
+    .bento-card {
+        padding: 20px;
+        min-height: auto;
+    }
+    
+    /* Event Details Card - Mobile */
+    .event-details-card {
+        padding: 24px 20px;
+        border-left: 3px solid var(--primary-blue);
+    }
+    
+    .event-details-heading {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .event-detail-item {
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+    
+    .event-detail-icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .event-detail-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .event-detail-title {
+        font-size: 15px;
+    }
+    
+    .event-detail-subtitle {
+        font-size: 13px;
+    }
+    
+    /* Right Column - Mobile (Stack both cards) */
+    .bento-right-column {
+        display: grid;
+        grid-template-rows: auto auto;
+        gap: 16px;
+    }
+    
+    /* Content Card - Mobile */
+    .content-card {
+        padding: 20px;
+    }
+    
+    .content-text p {
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 12px;
+    }
+    
+    /* Video Card Mobile */
+    .bento-card-video {
+        min-height: 180px;
+    }
+    
+    .video-container {
+        min-height: 180px;
     }
     
     /* Form adjustments for mobile */
@@ -215,8 +283,77 @@
         font-size: 20px;
     }
     
-    .supporting-text {
-        font-size: 17px;
+    /* Bento Grid - Tablet Layout (Keep 2:1 Ratio) */
+    .bento-grid {
+        grid-template-columns: 1fr 2fr;
+        gap: 20px;
+        max-width: 1000px;
+    }
+    
+    .bento-card {
+        padding: 22px;
+        min-height: auto;
+    }
+    
+    /* Event Details Card - Tablet */
+    .event-details-card {
+        padding: 26px 22px;
+        border-left: 4px solid var(--primary-blue);
+    }
+    
+    .event-details-heading {
+        font-size: 21px;
+        margin-bottom: 22px;
+    }
+    
+    .event-detail-item {
+        gap: 14px;
+        margin-bottom: 18px;
+    }
+    
+    .event-detail-icon {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .event-detail-icon svg {
+        width: 19px;
+        height: 19px;
+    }
+    
+    .event-detail-title {
+        font-size: 15px;
+    }
+    
+    .event-detail-subtitle {
+        font-size: 13px;
+    }
+    
+    /* Right Column - Tablet */
+    .bento-right-column {
+        display: grid;
+        grid-template-rows: 2fr 1fr;
+        gap: 18px;
+    }
+    
+    /* Content Card - Tablet */
+    .content-card {
+        padding: 26px;
+    }
+    
+    .content-text p {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 14px;
+    }
+    
+    /* Video Card Tablet */
+    .bento-card-video {
+        min-height: 180px;
+    }
+    
+    .video-container {
+        min-height: 180px;
     }
     
     /* Form */
@@ -312,8 +449,11 @@
         font-size: 20px;
     }
     
-    .supporting-text {
-        font-size: 16px;
+    /* Bento Grid - Desktop Layout (uses default main.css styles with 2:1 ratio) */
+    .bento-grid {
+        grid-template-columns: 1fr 2fr;
+        gap: 24px;
+        max-width: 1200px;
     }
     
     /* Form */
@@ -354,10 +494,11 @@
         margin-bottom: 36px;
     }
     
-    .supporting-text {
-        font-size: 18px;
+    /* Bento Grid - Large Desktop */
+    .bento-grid {
         margin-bottom: 44px;
-        max-width: 720px;
+        max-width: 1300px;
+        gap: 28px;
     }
     
     .form-container {

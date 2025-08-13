@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sophisticated Background for myBlueprint Career Launch -->
+  <defs>
+    <!-- Primary Background Gradient -->
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1d29;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#22224C;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#2a2d3d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#252A33;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Overlay Gradient for Depth -->
+    <radialGradient id="radialOverlay" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:rgba(0,146,255,0.08);stop-opacity:1" />
+      <stop offset="50%" style="stop-color:rgba(34,34,76,0.2);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(37,42,51,0.4);stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- Geometric Pattern -->
+    <pattern id="geometricPattern" patternUnits="userSpaceOnUse" width="200" height="200" opacity="0.03">
+      <rect width="200" height="200" fill="transparent"/>
+      <!-- Subtle grid -->
+      <line x1="0" y1="100" x2="200" y2="100" stroke="#0092FF" stroke-width="0.5"/>
+      <line x1="100" y1="0" x2="100" y2="200" stroke="#0092FF" stroke-width="0.5"/>
+      <!-- Diagonal accents -->
+      <line x1="0" y1="0" x2="50" y2="50" stroke="rgba(198,231,255,0.3)" stroke-width="0.3"/>
+      <line x1="150" y1="0" x2="200" y2="50" stroke="rgba(198,231,255,0.3)" stroke-width="0.3"/>
+      <line x1="0" y1="150" x2="50" y2="200" stroke="rgba(198,231,255,0.3)" stroke-width="0.3"/>
+      <line x1="150" y1="150" x2="200" y2="200" stroke="rgba(198,231,255,0.3)" stroke-width="0.3"/>
+      <!-- Dots for texture -->
+      <circle cx="50" cy="50" r="1" fill="rgba(0,146,255,0.2)"/>
+      <circle cx="150" cy="50" r="1" fill="rgba(0,146,255,0.2)"/>
+      <circle cx="50" cy="150" r="1" fill="rgba(0,146,255,0.2)"/>
+      <circle cx="150" cy="150" r="1" fill="rgba(0,146,255,0.2)"/>
+    </pattern>
+    
+    <!-- Noise/Texture Pattern -->
+    <filter id="noise">
+      <feTurbulence baseFrequency="0.9" numOctaves="1" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0"/>
+      <feComponentTransfer in="noise" result="opacity">
+        <feFuncA type="discrete" tableValues="0 0.02 0.04 0.06"/>
+      </feComponentTransfer>
+      <feComposite in="opacity" in2="SourceGraphic" operator="over"/>
+    </filter>
+  </defs>
+  
+  <!-- Main Background -->
+  <rect width="1920" height="1080" fill="url(#primaryGradient)"/>
+  
+  <!-- Geometric Pattern Overlay -->
+  <rect width="1920" height="1080" fill="url(#geometricPattern)"/>
+  
+  <!-- Radial Overlay for Depth -->
+  <rect width="1920" height="1080" fill="url(#radialOverlay)"/>
+  
+  <!-- Abstract Professional Elements -->
+  <g opacity="0.08">
+    <!-- Network Connection Lines -->
+    <g stroke="rgba(0,146,255,0.3)" stroke-width="1" fill="none">
+      <path d="M200 300 Q800 200, 1400 400"/>
+      <path d="M300 600 Q900 400, 1500 700"/>
+      <path d="M100 800 Q700 600, 1300 900"/>
+    </g>
+    
+    <!-- Abstract Building Silhouettes -->
+    <g fill="rgba(34,34,76,0.15)">
+      <rect x="1600" y="400" width="120" height="400" rx="5"/>
+      <rect x="1650" y="350" width="80" height="450" rx="3"/>
+      <rect x="1720" y="450" width="60" height="350" rx="3"/>
+      <rect x="1780" y="380" width="90" height="420" rx="4"/>
+    </g>
+    
+    <!-- Career Pathway Visualization -->
+    <g transform="translate(200, 700)">
+      <path d="M0 0 L100 -20 L200 10 L300 -30 L400 5" 
+            stroke="rgba(198,231,255,0.2)" stroke-width="3" fill="none"/>
+      <!-- Steps along the path -->
+      <circle cx="0" cy="0" r="4" fill="rgba(0,146,255,0.3)"/>
+      <circle cx="100" cy="-20" r="4" fill="rgba(0,146,255,0.3)"/>
+      <circle cx="200" cy="10" r="4" fill="rgba(0,146,255,0.3)"/>
+      <circle cx="300" cy="-30" r="4" fill="rgba(0,146,255,0.3)"/>
+      <circle cx="400" cy="5" r="4" fill="rgba(0,146,255,0.3)"/>
+    </g>
+    
+    <!-- Subtle Tech/Innovation Elements -->
+    <g transform="translate(1400, 200)" fill="rgba(0,146,255,0.1)">
+      <!-- Circuit pattern -->
+      <rect x="0" y="0" width="40" height="2"/>
+      <rect x="20" y="-10" width="2" height="20"/>
+      <rect x="10" y="10" width="20" height="2"/>
+      <circle cx="10" cy="11" r="3" fill="none" stroke="rgba(0,146,255,0.1)" stroke-width="1"/>
+      <circle cx="30" cy="11" r="3" fill="none" stroke="rgba(0,146,255,0.1)" stroke-width="1"/>
+    </g>
+  </g>
+  
+  <!-- Spotlight Effect for Content Area -->
+  <ellipse cx="960" cy="450" rx="600" ry="400" 
+           fill="rgba(0,146,255,0.02)" 
+           opacity="0.8"/>
+  
+  <!-- Subtle Noise Texture -->
+  <rect width="1920" height="1080" fill="transparent" filter="url(#noise)"/>
+</svg>
