@@ -24,8 +24,11 @@
     
     /* Main container mobile spacing */
     .main-container {
-        padding: 20px 20px 32px;
+        padding: 20px 20px 100px; /* Increased bottom padding */
         max-width: 100%;
+        min-height: 100vh; /* Ensure full viewport height */
+        height: auto; /* Allow natural height expansion */
+        justify-content: flex-start; /* Align content to top */
     }
     
     /* Hero Portraits Carousel - Mobile Layout */
@@ -95,7 +98,8 @@
     
     .bento-card {
         padding: 20px;
-        min-height: auto;
+        min-height: auto; /* Remove fixed heights */
+        height: auto; /* Allow natural height */
         width: 100%;
         box-sizing: border-box;
         overflow: visible; /* Allow content to be visible */
@@ -150,38 +154,21 @@
     /* Video Card Mobile */
     .bento-card-video {
         padding: 16px 20px 20px 20px;
-        height: 220px; /* Fixed height for consistent mobile layout */
-        overflow: visible; /* Allow content to be fully visible */
-        display: flex;
-        flex-direction: column;
     }
     
     .video-card-title {
         font-size: 16px;
         margin-bottom: 12px;
         line-height: 1.2;
-        flex-shrink: 0; /* Prevent title from shrinking */
     }
     
     .video-container {
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        height: 160px; /* Fixed height instead of percentage-based */
-        padding-bottom: 0; /* Remove percentage padding */
-        position: relative;
-        width: 100%;
-        flex: 1; /* Take up remaining space in card */
-        overflow: hidden;
     }
     
     .video-container iframe {
         border-radius: 8px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
     }
     
     /* Form adjustments for mobile */
@@ -220,7 +207,10 @@
 
 @media (max-width: 374px) {
     .main-container {
-        padding: 60px 16px 24px;
+        padding: 60px 16px 100px; /* Increased bottom padding */
+        height: auto; /* Allow natural height */
+        min-height: 100vh;
+        justify-content: flex-start;
     }
     
     .hero-headline {
@@ -243,12 +233,7 @@
     
     /* Very small screen video adjustments */
     .bento-card-video {
-        height: 200px; /* Smaller height for very small screens */
         padding: 14px 16px 16px 16px;
-    }
-    
-    .video-container {
-        height: 140px; /* Proportionally smaller video */
     }
     
     .video-card-title {
@@ -259,10 +244,10 @@
 }
 
 /* ================================
-   TABLET (768px - 1023px)
+   TABLET LARGE (850px - 1023px)
    ================================ */
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 850px) and (max-width: 1023px) {
     /* Logo */
     .logo {
         top: 93px; /* Centered with tablet carousel (height: 180px, margin: 23px, padding: 80px) */
@@ -387,15 +372,11 @@
     /* Video Card Tablet */
     .bento-card-video {
         padding: 22px;
-        max-height: none; /* Remove height constraint on tablet */
-        overflow: visible;
     }
     
     .video-container {
         border-radius: 10px;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-        max-height: none; /* Remove height constraint on tablet */
-        padding-bottom: 56.25%; /* Return to normal 16:9 aspect ratio */
     }
     
     .video-container iframe {
@@ -457,6 +438,40 @@
     .supporting-text {
         font-size: 14px;
         margin-bottom: 24px;
+    }
+}
+
+/* ================================
+   TABLET WIDE (850px-1023px)
+   Stack bento cards to prevent layout squeeze
+   ================================ */
+
+@media (min-width: 768px) and (max-width: 849px) {
+    /* Bento Grid - Stack vertically to prevent squeeze */
+    .bento-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 600px;
+        margin-bottom: 36px;
+    }
+    
+    .bento-card {
+        width: 100%;
+        min-height: auto;
+    }
+    
+    /* Video Card - Full width for proper aspect ratio */
+    .bento-card-video {
+        padding: 20px;
+    }
+    
+    .video-container {
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    }
+    
+    .video-container iframe {
+        border-radius: 10px;
     }
 }
 
@@ -538,6 +553,7 @@
     .student-count {
         font-size: 22px;
         margin-bottom: 36px;
+        max-width: 850px;
     }
     
     /* Bento Grid - Large Desktop */
@@ -559,7 +575,7 @@
 @media (min-width: 1920px) {
     .main-container {
         padding: 120px 24px 80px;
-        max-width: 700px;
+        max-width: 1400px; /* Allow room for bento grid on ultra-wide screens */
     }
     
     .supporting-text {
