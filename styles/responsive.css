@@ -24,15 +24,25 @@
     
     /* Main container mobile spacing */
     .main-container {
-        padding: 60px 20px 32px;
+        padding: 20px 20px 32px;
         max-width: 100%;
     }
     
-    /* Hero Portraits Slider - Mobile Layout */
-    .hero-portraits {
-        width: 150px;
+    /* Hero Portraits Carousel - Mobile Layout */
+    .hero-carousel {
         height: 150px;
-        margin: 0 auto 32px;
+        margin: 20px auto 32px;
+        max-width: 100%;
+    }
+    
+    .carousel-track {
+        width: calc(170px * 10); /* 10 slides with smaller portraits */
+        animation: carouselScrollMobile 18s linear infinite;
+    }
+    
+    .carousel-slide {
+        flex: 0 0 170px; /* 150px portrait + 20px gap */
+        padding-right: 20px;
     }
     
     .hero-portrait {
@@ -47,14 +57,14 @@
             0 0 15px rgba(0, 146, 255, 0.1);
     }
     
-    /* Hide indicators on mobile for cleaner look */
-    .slider-indicators {
-        display: none;
-    }
-    
-    /* Reduce glow animation intensity on mobile for performance */
-    .slide.active .hero-portrait {
-        animation: none;
+    /* Mobile scrolling animation */
+    @keyframes carouselScrollMobile {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-170px * 5));
+        }
     }
     
     /* Typography - Mobile sizes */
@@ -80,26 +90,30 @@
     
     /* Form adjustments for mobile */
     .form-container {
-        padding: 28px 24px;
         margin: 0 auto;
-        border-radius: 12px;
     }
     
-    .form-title {
-        font-size: 20px;
-        margin-bottom: 20px;
+    /* Stack form elements vertically on mobile */
+    .form-group {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
     }
     
     /* Touch targets - minimum 44px */
     .form-input {
         min-height: 48px;
         font-size: 16px; /* Prevents zoom on iOS */
+        flex: none;
+        width: 100%;
     }
     
     .cta-button {
-        min-height: 56px;
+        min-height: 48px;
         font-size: 16px;
-        padding: 16px 28px;
+        padding: 14px 24px;
+        width: 100%;
+        flex: none;
     }
 }
 
@@ -128,12 +142,9 @@
     }
     
     .form-container {
-        padding: 20px;
+        margin: 0 auto;
     }
     
-    .form-title {
-        font-size: 18px;
-    }
 }
 
 /* ================================
@@ -153,11 +164,21 @@
         padding: 80px 40px 40px;
     }
     
-    /* Hero Portraits Slider - Tablet Layout */
-    .hero-portraits {
-        width: 180px;
+    /* Hero Portraits Carousel - Tablet Layout */
+    .hero-carousel {
         height: 180px;
-        margin: 0 auto 40px;
+        margin: 23px auto 40px;
+        max-width: 900px;
+    }
+    
+    .carousel-track {
+        width: calc(200px * 10); /* 10 slides with medium portraits */
+        animation: carouselScrollTablet 19s linear infinite;
+    }
+    
+    .carousel-slide {
+        flex: 0 0 200px; /* 180px portrait + 20px gap */
+        padding-right: 20px;
     }
     
     .hero-portrait {
@@ -171,9 +192,14 @@
             0 0 18px rgba(0, 146, 255, 0.1);
     }
     
-    /* Show indicators on tablet and above */
-    .slider-indicators {
-        display: flex;
+    /* Tablet scrolling animation */
+    @keyframes carouselScrollTablet {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-200px * 5));
+        }
     }
     
     /* Typography - Tablet sizes */
@@ -195,11 +221,26 @@
     
     /* Form */
     .form-container {
-        padding: 32px 30px;
+        margin: 0 auto;
     }
     
-    .form-title {
-        font-size: 22px;
+    /* Keep inline layout on tablet and larger */
+    .form-group {
+        flex-direction: row;
+        gap: 12px;
+        align-items: flex-start;
+    }
+    
+    .form-input {
+        flex: 1;
+        min-width: 0;
+        width: auto;
+    }
+    
+    .cta-button {
+        flex-shrink: 0;
+        white-space: nowrap;
+        width: auto;
     }
 }
 
@@ -277,11 +318,7 @@
     
     /* Form */
     .form-container {
-        padding: 32px;
-    }
-    
-    .form-title {
-        font-size: 22px;
+        margin: 0 auto;
     }
     
     /* Enhanced hover effects for desktop */
@@ -320,16 +357,11 @@
     .supporting-text {
         font-size: 18px;
         margin-bottom: 44px;
-        max-width: 520px;
+        max-width: 720px;
     }
     
     .form-container {
-        padding: 36px;
-    }
-    
-    .form-title {
-        font-size: 24px;
-        margin-bottom: 24px;
+        margin: 0 auto;
     }
 }
 
@@ -344,7 +376,7 @@
     }
     
     .supporting-text {
-        max-width: 560px;
+        max-width: 720px;
     }
 }
 
@@ -415,6 +447,7 @@
     .form-input {
         /* Better rendering on Android Chrome */
         -webkit-appearance: none;
+        appearance: none;
         border-radius: 8px;
     }
 }
@@ -467,10 +500,6 @@
 
 /* Dark mode support (if user prefers dark color scheme) */
 @media (prefers-color-scheme: dark) {
-    /* Enhance contrast for dark mode users */
-    .form-container {
-        background: rgba(246, 246, 255, 0.98);
-    }
     
     .hero-headline,
     .supporting-text {

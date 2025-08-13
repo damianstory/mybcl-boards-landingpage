@@ -124,7 +124,7 @@
             color: var(--neutral-1);
             text-align: center;
             margin-bottom: 40px;
-            max-width: 480px;
+            max-width: 720px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -147,62 +147,80 @@
     <!-- Main Content -->
     <main role="main" class="main-container">
         <section aria-labelledby="event-title">
-            <!-- Hero Portraits Slider -->
-            <div class="hero-portraits" 
+            <!-- Hero Portraits Carousel -->
+            <div class="hero-carousel" 
                  role="region" 
-                 aria-label="Career professionals slideshow" 
-                 aria-roledescription="carousel" 
-                 aria-live="polite">
-                <div class="slider-track">
-                    <div class="slide" data-slide="0">
-                        <div class="portrait-container">
+                 aria-label="Career professionals carousel" 
+                 aria-roledescription="carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- Original portraits -->
+                        <div class="carousel-slide">
                             <img src="images/portraits/portrait-tech.svg" 
                                  alt="Technology professional - Software developer working in innovative tech environment" 
                                  class="hero-portrait" 
                                  loading="eager">
                         </div>
-                    </div>
-                    <div class="slide" data-slide="1">
-                        <div class="portrait-container">
+                        <div class="carousel-slide">
                             <img src="images/portraits/portrait-healthcare.svg" 
                                  alt="Healthcare professional - Medical practitioner dedicated to patient care" 
                                  class="hero-portrait" 
                                  loading="eager">
                         </div>
-                    </div>
-                    <div class="slide" data-slide="2">
-                        <div class="portrait-container">
+                        <div class="carousel-slide">
                             <img src="images/portraits/portrait-education.svg" 
                                  alt="Education professional - Teacher inspiring the next generation" 
                                  class="hero-portrait" 
                                  loading="eager">
                         </div>
-                    </div>
-                    <div class="slide" data-slide="3">
-                        <div class="portrait-container">
+                        <div class="carousel-slide">
                             <img src="images/portraits/portrait-trades.svg" 
                                  alt="Skilled trades professional - Expert craftsperson building our world" 
                                  class="hero-portrait" 
                                  loading="eager">
                         </div>
-                    </div>
-                    <div class="slide" data-slide="4">
-                        <div class="portrait-container">
+                        <div class="carousel-slide">
+                            <img src="images/portraits/portrait-business.svg" 
+                                 alt="Business professional - Executive leader driving innovation" 
+                                 class="hero-portrait" 
+                                 loading="eager">
+                        </div>
+                        <!-- Duplicated portraits for seamless loop -->
+                        <div class="carousel-slide">
+                            <img src="images/portraits/portrait-tech.svg" 
+                                 alt="Technology professional - Software developer working in innovative tech environment" 
+                                 class="hero-portrait" 
+                                 loading="eager">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/portraits/portrait-healthcare.svg" 
+                                 alt="Healthcare professional - Medical practitioner dedicated to patient care" 
+                                 class="hero-portrait" 
+                                 loading="eager">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/portraits/portrait-education.svg" 
+                                 alt="Education professional - Teacher inspiring the next generation" 
+                                 class="hero-portrait" 
+                                 loading="eager">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/portraits/portrait-trades.svg" 
+                                 alt="Skilled trades professional - Expert craftsperson building our world" 
+                                 class="hero-portrait" 
+                                 loading="eager">
+                        </div>
+                        <div class="carousel-slide">
                             <img src="images/portraits/portrait-business.svg" 
                                  alt="Business professional - Executive leader driving innovation" 
                                  class="hero-portrait" 
                                  loading="eager">
                         </div>
                     </div>
-                </div>
-                
-                <!-- Slider indicators (optional, hidden by default) -->
-                <div class="slider-indicators" aria-hidden="true">
-                    <div class="indicator" data-slide-to="0"></div>
-                    <div class="indicator" data-slide-to="1"></div>
-                    <div class="indicator" data-slide-to="2"></div>
-                    <div class="indicator" data-slide-to="3"></div>
-                    <div class="indicator" data-slide-to="4"></div>
+                    
+                    <!-- Edge gradients for smooth visual transition -->
+                    <div class="carousel-gradient carousel-gradient-left"></div>
+                    <div class="carousel-gradient carousel-gradient-right"></div>
                 </div>
             </div>
 
@@ -211,15 +229,14 @@
             <h2 class="event-date">December 2nd</h2>
             <p class="student-count">Join 50,000+ students exploring career opportunities</p>
             <p class="supporting-text">
-                Don't miss this exclusive virtual career fair connecting students with innovative career paths. 
-                Be the first to know when our comprehensive agenda is released.
+                About 50% of today's students expect to work in just 10 traditional jobs - doctor, teacher, lawyer, engineer - while career opportunities have never been more diverse. The OECD's landmark research shows that 'you cannot be what you cannot see,' and right now, students aren't seeing your industry.
+
+With career uncertainty at an all-time high and student expectations 3x greater than actual job demand in professional fields, young people need your voice. Research proves that direct employer engagement leads to better employment outcomes at age 25.
             </p>
 
             <!-- Email Capture Form -->
-            <form id="email-form" class="email-form" aria-labelledby="form-title" role="form" novalidate>
+            <form id="email-form" class="email-form" aria-label="Email signup form" role="form" novalidate>
                 <div class="form-container">
-                    <h3 id="form-title" class="form-title">Get Notified When the Agenda is Released</h3>
-                    
                     <div class="form-group">
                         <label for="email" class="form-label visually-hidden">Email Address</label>
                         <input 
@@ -229,18 +246,15 @@
                             class="form-input" 
                             placeholder="Enter your email address"
                             required 
-                            aria-describedby="email-help email-error"
+                            aria-describedby="email-error"
                             autocomplete="email"
                         >
-                        <div id="email-help" class="form-help">We'll notify you as soon as the agenda is available</div>
-                        <div id="email-error" class="form-error" role="alert" aria-live="polite"></div>
+                        <button type="submit" class="cta-button">
+                            <span class="button-text">Sign Up</span>
+                            <span class="loading-spinner" aria-hidden="true"></span>
+                        </button>
                     </div>
-                    
-                    <button type="submit" class="cta-button" aria-describedby="button-help">
-                        <span class="button-text">Notify Me</span>
-                        <span class="loading-spinner" aria-hidden="true"></span>
-                    </button>
-                    <div id="button-help" class="button-help">Click to receive agenda notifications</div>
+                    <div id="email-error" class="form-error" role="alert" aria-live="polite"></div>
                 </div>
                 
                 <!-- Success/Error Messages -->

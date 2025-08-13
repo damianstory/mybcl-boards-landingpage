@@ -4,155 +4,60 @@
  */
 
 /**
- * Hero Portraits Slider Class
- * Handles auto-cycling image slider with fade transitions
+ * Hero Portraits Carousel Class
+ * Handles CSS-based continuous horizontal scrolling with hover controls
  */
-class HeroSlider {
+class HeroCarousel {
     constructor() {
-        this.currentSlide = 0;
-        this.slides = document.querySelectorAll('.slide');
-        this.indicators = document.querySelectorAll('.indicator');
-        this.totalSlides = this.slides.length;
-        this.interval = null;
-        this.duration = 3500; // 3.5 seconds
+        this.carousel = document.querySelector('.hero-carousel');
+        this.track = document.querySelector('.carousel-track');
+        this.slides = document.querySelectorAll('.carousel-slide');
         this.isPaused = false;
         
         this.init();
     }
     
     init() {
-        if (this.totalSlides === 0) {
-            console.warn('No slides found for hero slider');
+        if (!this.carousel || !this.track || this.slides.length === 0) {
+            console.warn('No carousel elements found');
             return;
         }
         
-        // Show first slide and indicator
-        this.showSlide(0);
-        
-        // Start auto-cycling after initial page animations
-        setTimeout(() => {
-            this.startAutoSlide();
-        }, 2000); // Wait for page load animations
-        
-        // Setup hover pause (desktop only)
-        this.setupHoverPause();
-        
-        // Setup indicator clicks
-        this.setupIndicators();
+        // Setup hover pause functionality
+        this.setupHoverControls();
         
         // Preload all images
         this.preloadImages();
-    }
-    
-    showSlide(index) {
-        // Hide all slides
-        this.slides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            slide.setAttribute('aria-hidden', 'true');
-        });
         
-        // Hide all indicators
-        this.indicators.forEach((indicator) => {
-            indicator.classList.remove('active');
-        });
-        
-        // Show target slide
-        if (this.slides[index]) {
-            this.slides[index].classList.add('active');
-            this.slides[index].setAttribute('aria-hidden', 'false');
-            
-            // Update current slide index
-            this.currentSlide = index;
-            
-            // Show corresponding indicator
-            if (this.indicators[index]) {
-                this.indicators[index].classList.add('active');
-            }
-            
-            // Update aria-label for accessibility
-            const container = document.querySelector('.hero-portraits');
-            const currentAlt = this.slides[index].querySelector('img')?.alt || 'Career professional';
-            if (container) {
-                container.setAttribute('aria-label', `Career professionals slideshow - Currently showing: ${currentAlt}`);
-            }
-        }
+        // Setup accessibility
+        this.setupAccessibility();
     }
     
-    nextSlide() {
-        if (this.isPaused) return;
-        
-        const nextIndex = (this.currentSlide + 1) % this.totalSlides;
-        this.showSlide(nextIndex);
-    }
-    
-    goToSlide(index) {
-        if (index >= 0 && index < this.totalSlides) {
-            this.showSlide(index);
-        }
-    }
-    
-    startAutoSlide() {
-        if (this.interval) {
-            clearInterval(this.interval);
-        }
-        
-        this.interval = setInterval(() => {
-            this.nextSlide();
-        }, this.duration);
-    }
-    
-    pauseSlider() {
-        this.isPaused = true;
-        if (this.interval) {
-            clearInterval(this.interval);
-            this.interval = null;
-        }
-    }
-    
-    resumeSlider() {
-        this.isPaused = false;
-        this.startAutoSlide();
-    }
-    
-    setupHoverPause() {
-        const container = document.querySelector('.hero-portraits');
-        if (!container) return;
-        
+    setupHoverControls() {
         // Only enable hover pause on devices that support hover
         if (window.matchMedia('(hover: hover)').matches) {
-            container.addEventListener('mouseenter', () => {
-                this.pauseSlider();
+            this.carousel.addEventListener('mouseenter', () => {
+                this.pauseAnimation();
             });
             
-            container.addEventListener('mouseleave', () => {
-                this.resumeSlider();
+            this.carousel.addEventListener('mouseleave', () => {
+                this.resumeAnimation();
             });
         }
     }
     
-    setupIndicators() {
-        this.indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                this.goToSlide(index);
-                
-                // Restart timer after manual interaction
-                if (!this.isPaused) {
-                    this.startAutoSlide();
-                }
-            });
-            
-            // Keyboard accessibility
-            indicator.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    this.goToSlide(index);
-                    
-                    if (!this.isPaused) {
-                        this.startAutoSlide();
-                    }
-                }
-            });
-        });
+    pauseAnimation() {
+        this.isPaused = true;
+        if (this.track) {
+            this.track.style.animationPlayState = 'paused';
+        }
+    }
+    
+    resumeAnimation() {
+        this.isPaused = false;
+        if (this.track) {
+            this.track.style.animationPlayState = 'running';
+        }
     }
     
     preloadImages() {
@@ -166,18 +71,23 @@ class HeroSlider {
         });
     }
     
-    // Public method to destroy slider (cleanup)
-    destroy() {
-        if (this.interval) {
-            clearInterval(this.interval);
-            this.interval = null;
+    setupAccessibility() {
+        // Update aria-label with descriptive text
+        if (this.carousel) {
+            this.carousel.setAttribute('aria-label', 'Continuous carousel showing diverse career professionals');
         }
         
-        // Remove event listeners
-        const container = document.querySelector('.hero-portraits');
-        if (container) {
-            container.removeEventListener('mouseenter', this.pauseSlider);
-            container.removeEventListener('mouseleave', this.resumeSlider);
+        // Set proper aria attributes on slides
+        this.slides.forEach((slide, index) => {
+            slide.setAttribute('aria-label', `Career professional ${(index % 5) + 1} of 5`);
+        });
+    }
+    
+    // Public method to destroy carousel (cleanup)
+    destroy() {
+        if (this.carousel) {
+            this.carousel.removeEventListener('mouseenter', this.pauseAnimation);
+            this.carousel.removeEventListener('mouseleave', this.resumeAnimation);
         }
     }
 }
@@ -185,7 +95,7 @@ class HeroSlider {
 class CareerLaunchApp {
     constructor() {
         this.validator = new FormValidator();
-        this.heroSlider = null;
+        this.heroCarousel = null;
         this.isSubmitting = false;
         this.retryCount = 0;
         this.maxRetries = 3;
@@ -229,8 +139,12 @@ class CareerLaunchApp {
             return;
         }
 
-        // Initialize hero slider
-        this.heroSlider = new HeroSlider();
+        // Initialize hero carousel (independent of form validation)
+        try {
+            this.heroCarousel = new HeroCarousel();
+        } catch (error) {
+            console.error('Hero carousel initialization failed:', error);
+        }
 
         // Setup form validation
         this.validator.attachRealTimeValidation(emailInput, errorElement);
@@ -612,9 +526,16 @@ class CareerLaunchApp {
     }
 }
 
-// Initialize the application
+// Initialize the hero carousel immediately when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    // Check for required browser features
+    // Initialize hero carousel first, independent of other functionality
+    try {
+        new HeroCarousel();
+    } catch (error) {
+        console.error('Standalone hero carousel failed:', error);
+    }
+    
+    // Check for required browser features for main app
     if (typeof fetch === 'undefined' || typeof Promise === 'undefined') {
         console.error('Browser not supported: Missing required features');
         
@@ -626,7 +547,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Initialize app
+    // Initialize main app
     try {
         new CareerLaunchApp();
     } catch (error) {
