@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="140" height="140" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <defs>
+    <linearGradient id="tradesBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#485163;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#252A33;stop-opacity:0.2" />
+    </linearGradient>
+    <linearGradient id="skinTrades" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#DEB887;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CD9B6D;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="140" height="140" rx="12" fill="url(#tradesBg)"/>
+  
+  <!-- Trades elements -->
+  <g opacity="0.15">
+    <!-- Tools -->
+    <g transform="translate(20, 25)">
+      <!-- Hammer -->
+      <rect x="0" y="5" width="12" height="3" fill="#65738B"/>
+      <rect x="10" y="0" width="3" height="15" fill="#8B4513"/>
+    </g>
+    <!-- Wrench -->
+    <g transform="translate(110, 110)">
+      <ellipse cx="0" cy="0" rx="4" ry="2" fill="#65738B"/>
+      <rect x="-1" y="-8" width="2" height="8" fill="#65738B"/>
+    </g>
+    <!-- Gear -->
+    <g transform="translate(115, 30)">
+      <circle cx="0" cy="0" r="6" fill="none" stroke="#65738B" stroke-width="2"/>
+      <circle cx="0" cy="0" r="2" fill="#65738B"/>
+    </g>
+    <!-- Hard hat symbol -->
+    <path d="M25 115 Q30 110, 35 115" stroke="#FFD700" stroke-width="2" fill="none"/>
+  </g>
+  
+  <!-- Professional Figure - Trades Worker (Hispanic Male) -->
+  <g transform="translate(70, 65)">
+    <!-- Head -->
+    <circle cx="0" cy="-15" r="22" fill="url(#skinTrades)"/>
+    
+    <!-- Hair -->
+    <path d="M-20 -28 C-22 -35, 22 -35, 20 -28 C18 -23, 12 -20, 8 -22 C4 -18, -4 -18, -8 -22 C-12 -20, -18 -23, -20 -28" fill="#2C1810"/>
+    
+    <!-- Eyes -->
+    <ellipse cx="-8" cy="-18" rx="2" ry="1.5" fill="#654321"/>
+    <ellipse cx="8" cy="-18" rx="2" ry="1.5" fill="#654321"/>
+    <circle cx="-8" cy="-18" r="0.8" fill="#FFFFFF"/>
+    <circle cx="8" cy="-18" r="0.8" fill="#FFFFFF"/>
+    
+    <!-- Mustache -->
+    <path d="M-6 -8 Q0 -6, 6 -8" fill="#2C1810" stroke="#2C1810" stroke-width="1"/>
+    
+    <!-- Nose -->
+    <ellipse cx="0" cy="-12" rx="2" ry="3" fill="#CD9B6D"/>
+    
+    <!-- Mouth -->
+    <path d="M-4 -4 Q0 -1 4 -4" fill="none" stroke="#8B6914" stroke-width="1"/>
+    
+    <!-- Work Shirt/Coveralls -->
+    <rect x="-25" y="5" width="50" height="35" rx="8" fill="#4A5568"/>
+    <rect x="-22" y="8" width="44" height="32" rx="6" fill="#5A6478"/>
+    
+    <!-- High-vis vest -->
+    <rect x="-20" y="10" width="40" height="25" rx="4" fill="rgba(255,215,0,0.8)"/>
+    <!-- Reflective stripes -->
+    <rect x="-18" y="15" width="36" height="2" fill="#C0C0C0"/>
+    <rect x="-18" y="25" width="36" height="2" fill="#C0C0C0"/>
+    
+    <!-- Tool belt -->
+    <rect x="-25" y="32" width="50" height="6" rx="3" fill="#8B4513"/>
+    <rect x="-15" y="32" width="4" height="8" rx="1" fill="#654321"/>
+    <rect x="5" y="32" width="6" height="8" rx="1" fill="#654321"/>
+    
+    <!-- Hard hat -->
+    <ellipse cx="0" cy="-35" rx="25" ry="8" fill="#FFD700"/>
+    <ellipse cx="0" cy="-32" rx="22" ry="6" fill="#FFA500"/>
+    <!-- Hat light -->
+    <circle cx="0" cy="-35" r="3" fill="#FFFFFF"/>
+    <circle cx="0" cy="-35" r="2" fill="#87CEEB"/>
+    
+    <!-- Work gloves -->
+    <ellipse cx="-28" cy="20" rx="4" ry="6" fill="#8B4513"/>
+    <ellipse cx="28" cy="20" rx="4" ry="6" fill="#8B4513"/>
+  </g>
+  
+  <!-- Subtle border -->
+  <rect x="2" y="2" width="136" height="136" rx="10" fill="none" stroke="rgba(72,81,99,0.4)" stroke-width="2"/>
+</svg>

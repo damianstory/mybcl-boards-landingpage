@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="140" height="140" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <defs>
+    <linearGradient id="healthBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C6E7FF;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#0092FF;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="skinHealth" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4A2B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7A3E26;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="140" height="140" rx="12" fill="url(#healthBg)"/>
+  
+  <!-- Medical elements -->
+  <g opacity="0.15">
+    <!-- Medical cross -->
+    <g transform="translate(20, 25)">
+      <rect x="-2" y="-8" width="4" height="16" fill="#0092FF"/>
+      <rect x="-8" y="-2" width="16" height="4" fill="#0092FF"/>
+    </g>
+    <!-- Heartbeat line -->
+    <path d="M100 30 L105 25 L110 35 L115 20 L120 30" stroke="#0092FF" stroke-width="2" fill="none"/>
+    <!-- Stethoscope -->
+    <circle cx="25" cy="110" r="5" fill="none" stroke="#0092FF" stroke-width="2"/>
+    <path d="M25 105 Q30 100, 40 105" stroke="#0092FF" stroke-width="2" fill="none"/>
+  </g>
+  
+  <!-- Professional Figure - Healthcare Worker (Black Female) -->
+  <g transform="translate(70, 65)">
+    <!-- Head -->
+    <circle cx="0" cy="-15" r="22" fill="url(#skinHealth)"/>
+    
+    <!-- Hair -->
+    <path d="M-22 -25 C-24 -35, 24 -35, 22 -25 C20 -15, 15 -10, 10 -12 C5 -8, -5 -8, -10 -12 C-15 -10, -20 -15, -22 -25" fill="#2C1810"/>
+    
+    <!-- Eyes -->
+    <ellipse cx="-8" cy="-18" rx="2.5" ry="2" fill="#2C2C2C"/>
+    <ellipse cx="8" cy="-18" rx="2.5" ry="2" fill="#2C2C2C"/>
+    <circle cx="-8" cy="-18" r="1" fill="#FFFFFF"/>
+    <circle cx="8" cy="-18" r="1" fill="#FFFFFF"/>
+    
+    <!-- Eyebrows -->
+    <path d="M-12 -22 L-4 -22" stroke="#2C1810" stroke-width="1.5"/>
+    <path d="M4 -22 L12 -22" stroke="#2C1810" stroke-width="1.5"/>
+    
+    <!-- Nose -->
+    <ellipse cx="0" cy="-12" rx="2" ry="3" fill="#7A3E26"/>
+    
+    <!-- Mouth -->
+    <path d="M-5 -5 Q0 -2 5 -5" fill="none" stroke="#5A2E1A" stroke-width="1.5"/>
+    
+    <!-- Scrubs/Medical Uniform -->
+    <rect x="-25" y="5" width="50" height="35" rx="8" fill="#E8F4FD"/>
+    <rect x="-22" y="8" width="44" height="32" rx="6" fill="#D1E7FA"/>
+    <!-- V-neck -->
+    <path d="M-10 8 L0 18 L10 8" fill="#E8F4FD"/>
+    
+    <!-- Stethoscope around neck -->
+    <ellipse cx="0" cy="12" rx="15" ry="8" fill="none" stroke="#2C2C2C" stroke-width="2"/>
+    <circle cx="-12" cy="20" r="3" fill="#2C2C2C"/>
+    <circle cx="12" cy="20" r="3" fill="#2C2C2C"/>
+    
+    <!-- Name badge -->
+    <rect x="15" y="15" width="8" height="6" rx="1" fill="#FFFFFF" stroke="#0092FF" stroke-width="0.5"/>
+    <line x1="16" y1="17" x2="22" y2="17" stroke="#0092FF" stroke-width="0.3"/>
+    <line x1="16" y1="19" x2="20" y2="19" stroke="#0092FF" stroke-width="0.3"/>
+  </g>
+  
+  <!-- Subtle border -->
+  <rect x="2" y="2" width="136" height="136" rx="10" fill="none" stroke="rgba(198,231,255,0.4)" stroke-width="2"/>
+</svg>

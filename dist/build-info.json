@@ -1,0 +1,16 @@
+{
+  "name": "myBlueprint Career Launch Landing Page",
+  "version": "1.0.0",
+  "build": {
+    "timestamp": "2025-08-13T21:36:29.794Z",
+    "environment": "production"
+  },
+  "performance": {
+    "target_load_time": "2000ms",
+    "target_conversion": "25%"
+  },
+  "integrations": {
+    "zoho_crm": true,
+    "analytics": false
+  }
+}

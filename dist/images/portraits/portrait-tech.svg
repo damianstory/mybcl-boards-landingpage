@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="140" height="140" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <defs>
+    <linearGradient id="techBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0092FF;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#22224C;stop-opacity:0.3" />
+    </linearGradient>
+    <linearGradient id="skinTech" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4A574;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C19B60;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="140" height="140" rx="12" fill="url(#techBg)"/>
+  
+  <!-- Tech environment elements -->
+  <g opacity="0.15">
+    <!-- Code brackets -->
+    <text x="15" y="25" font-family="monospace" font-size="12" fill="#0092FF">&lt;/&gt;</text>
+    <text x="105" y="120" font-family="monospace" font-size="10" fill="#0092FF">{ }</text>
+    <!-- Binary pattern -->
+    <text x="20" y="120" font-family="monospace" font-size="8" fill="#0092FF">101</text>
+    <text x="110" y="30" font-family="monospace" font-size="8" fill="#0092FF">010</text>
+  </g>
+  
+  <!-- Professional Figure - Tech Worker (Asian Male) -->
+  <g transform="translate(70, 65)">
+    <!-- Head -->
+    <circle cx="0" cy="-15" r="22" fill="url(#skinTech)"/>
+    
+    <!-- Hair -->
+    <path d="M-20 -25 C-22 -35, 22 -35, 20 -25 C18 -20, -18 -20, -20 -25" fill="#1C1C1C"/>
+    
+    <!-- Eyes -->
+    <ellipse cx="-8" cy="-18" rx="2" ry="1.5" fill="#2C2C2C"/>
+    <ellipse cx="8" cy="-18" rx="2" ry="1.5" fill="#2C2C2C"/>
+    <circle cx="-8" cy="-18" r="0.8" fill="#FFFFFF"/>
+    <circle cx="8" cy="-18" r="0.8" fill="#FFFFFF"/>
+    
+    <!-- Glasses -->
+    <circle cx="-8" cy="-18" r="8" fill="none" stroke="#2C2C2C" stroke-width="1.5"/>
+    <circle cx="8" cy="-18" r="8" fill="none" stroke="#2C2C2C" stroke-width="1.5"/>
+    <line x1="0" y1="-18" x2="0" y2="-18" stroke="#2C2C2C" stroke-width="1.5"/>
+    
+    <!-- Nose -->
+    <path d="M0 -12 L-1 -8 L1 -8 Z" fill="#C19B60"/>
+    
+    <!-- Mouth -->
+    <path d="M-4 -5 Q0 -3 4 -5" fill="none" stroke="#8B6F47" stroke-width="1"/>
+    
+    <!-- Shirt - Professional button-up -->
+    <rect x="-25" y="5" width="50" height="35" rx="8" fill="#FFFFFF"/>
+    <rect x="-22" y="8" width="44" height="32" rx="6" fill="#F0F8FF"/>
+    <!-- Collar -->
+    <path d="M-8 8 L0 20 L8 8" fill="none" stroke="#E0E8F0" stroke-width="1"/>
+    <!-- Buttons -->
+    <circle cx="0" cy="15" r="1.5" fill="#0092FF"/>
+    <circle cx="0" cy="25" r="1.5" fill="#0092FF"/>
+    
+    <!-- Tech accessory - Smartwatch -->
+    <rect x="-28" y="12" width="8" height="4" rx="2" fill="#2C2C2C"/>
+    <rect x="-26" y="13" width="4" height="2" rx="1" fill="#0092FF"/>
+  </g>
+  
+  <!-- Subtle border -->
+  <rect x="2" y="2" width="136" height="136" rx="10" fill="none" stroke="rgba(0,146,255,0.3)" stroke-width="2"/>
+</svg>
