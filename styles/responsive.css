@@ -88,11 +88,17 @@
         gap: 16px;
         margin-bottom: 36px;
         max-width: 100%;
+        width: 100%;
+        overflow-x: hidden; /* Prevent horizontal scroll only */
+        overflow-y: visible; /* Allow vertical scrolling if needed */
     }
     
     .bento-card {
         padding: 20px;
         min-height: auto;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: visible; /* Allow content to be visible */
     }
     
     /* Event Details Card - Mobile */
@@ -143,16 +149,39 @@
     
     /* Video Card Mobile */
     .bento-card-video {
-        padding: 20px;
+        padding: 16px 20px 20px 20px;
+        height: 220px; /* Fixed height for consistent mobile layout */
+        overflow: visible; /* Allow content to be fully visible */
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .video-card-title {
+        font-size: 16px;
+        margin-bottom: 12px;
+        line-height: 1.2;
+        flex-shrink: 0; /* Prevent title from shrinking */
     }
     
     .video-container {
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        height: 160px; /* Fixed height instead of percentage-based */
+        padding-bottom: 0; /* Remove percentage padding */
+        position: relative;
+        width: 100%;
+        flex: 1; /* Take up remaining space in card */
+        overflow: hidden;
     }
     
     .video-container iframe {
         border-radius: 8px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
     
     /* Form adjustments for mobile */
@@ -210,6 +239,21 @@
     
     .form-container {
         margin: 0 auto;
+    }
+    
+    /* Very small screen video adjustments */
+    .bento-card-video {
+        height: 200px; /* Smaller height for very small screens */
+        padding: 14px 16px 16px 16px;
+    }
+    
+    .video-container {
+        height: 140px; /* Proportionally smaller video */
+    }
+    
+    .video-card-title {
+        font-size: 14px;
+        margin-bottom: 10px;
     }
     
 }
@@ -343,11 +387,15 @@
     /* Video Card Tablet */
     .bento-card-video {
         padding: 22px;
+        max-height: none; /* Remove height constraint on tablet */
+        overflow: visible;
     }
     
     .video-container {
         border-radius: 10px;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        max-height: none; /* Remove height constraint on tablet */
+        padding-bottom: 56.25%; /* Return to normal 16:9 aspect ratio */
     }
     
     .video-container iframe {
