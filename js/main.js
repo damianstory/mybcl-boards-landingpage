@@ -77,9 +77,10 @@ class HeroCarousel {
             this.carousel.setAttribute('aria-label', 'Continuous carousel showing diverse career professionals');
         }
         
-        // Set proper aria attributes on slides
+        // Set proper aria attributes on slides (handle duplicates)
         this.slides.forEach((slide, index) => {
-            slide.setAttribute('aria-label', `Career professional ${(index % 5) + 1} of 5`);
+            const slideNumber = (index % 10) + 1; // Map duplicates back to original numbers
+            slide.setAttribute('aria-label', `Career professional ${slideNumber} of 10`);
         });
     }
     

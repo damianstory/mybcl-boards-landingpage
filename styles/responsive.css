@@ -129,12 +129,6 @@
         font-size: 13px;
     }
     
-    /* Right Column - Mobile (Stack both cards) */
-    .bento-right-column {
-        display: grid;
-        grid-template-rows: auto auto;
-        gap: 16px;
-    }
     
     /* Content Card - Mobile */
     .content-card {
@@ -149,11 +143,16 @@
     
     /* Video Card Mobile */
     .bento-card-video {
-        min-height: 180px;
+        padding: 20px;
     }
     
     .video-container {
-        min-height: 180px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .video-container iframe {
+        border-radius: 8px;
     }
     
     /* Form adjustments for mobile */
@@ -222,7 +221,7 @@
 @media (min-width: 768px) and (max-width: 1023px) {
     /* Logo */
     .logo {
-        top: 20px;
+        top: 93px; /* Centered with tablet carousel (height: 180px, margin: 23px, padding: 80px) */
         left: 20px;
         height: 38px;
     }
@@ -283,9 +282,9 @@
         font-size: 20px;
     }
     
-    /* Bento Grid - Tablet Layout (Keep 2:1 Ratio) */
+    /* Bento Grid - Tablet Layout (Equal columns) */
     .bento-grid {
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 1fr;
         gap: 20px;
         max-width: 1000px;
     }
@@ -329,12 +328,6 @@
         font-size: 13px;
     }
     
-    /* Right Column - Tablet */
-    .bento-right-column {
-        display: grid;
-        grid-template-rows: 2fr 1fr;
-        gap: 18px;
-    }
     
     /* Content Card - Tablet */
     .content-card {
@@ -349,11 +342,16 @@
     
     /* Video Card Tablet */
     .bento-card-video {
-        min-height: 180px;
+        padding: 22px;
     }
     
     .video-container {
-        min-height: 180px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    }
+    
+    .video-container iframe {
+        border-radius: 10px;
     }
     
     /* Form */
@@ -426,7 +424,7 @@
     
     /* Logo */
     .logo {
-        top: 24px;
+        top: 80px; /* Centered with desktop carousel (height: 150px, margin: 25px, padding: 25px) */
         left: 24px;
         height: 40px;
     }
@@ -449,9 +447,9 @@
         font-size: 20px;
     }
     
-    /* Bento Grid - Desktop Layout (uses default main.css styles with 2:1 ratio) */
+    /* Bento Grid - Desktop Layout (Equal columns) */
     .bento-grid {
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 1fr;
         gap: 24px;
         max-width: 1200px;
     }

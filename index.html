@@ -67,7 +67,7 @@
         /* Logo positioning */
         .logo {
             position: absolute;
-            top: 24px;
+            top: 80px;
             left: 24px;
             z-index: 3;
             height: 40px;
@@ -117,6 +117,28 @@
             margin-bottom: 32px;
         }
 
+        /* Highlighter effect for Career Launch */
+        .highlighted-text {
+            position: relative;
+            display: inline-block;
+            padding: 2px 8px;
+            color: inherit;
+        }
+
+        .highlighted-text::before {
+            content: '';
+            position: absolute;
+            top: 5%;
+            left: -2px;
+            right: -8px;
+            bottom: -10%;
+            background: var(--primary-blue);
+            opacity: 0.9;
+            z-index: -1;
+            border-radius: 300px 15px 280px 20px / 15px 280px 20px 300px;
+            transform: rotate(0deg);
+        }
+
     </style>
     
     <!-- External stylesheets -->
@@ -130,7 +152,6 @@
 <body>
     <!-- Logo -->
     <header>
-        <img src="images/logo.svg" alt="myBlueprint Career Education Platform" class="logo">
     </header>
 
     <!-- Main Content -->
@@ -143,65 +164,95 @@
                  aria-roledescription="carousel">
                 <div class="carousel-container">
                     <div class="carousel-track">
-                        <!-- Original portraits -->
+                        <!-- 10 Unique Professional Portraits -->
                         <div class="carousel-slide">
-                            <img src="images/portraits/portrait-tech.svg" 
-                                 alt="Technology professional - Software developer working in innovative tech environment" 
+                            <img src="images/portraits/portrait-1.jpg" 
+                                 alt="Technology professional - Software developer in modern workspace" 
                                  class="hero-portrait" 
                                  loading="eager">
                         </div>
                         <div class="carousel-slide">
-                            <img src="images/portraits/portrait-healthcare.svg" 
-                                 alt="Healthcare professional - Medical practitioner dedicated to patient care" 
+                            <img src="images/portraits/portrait-2.jpg" 
+                                 alt="Healthcare professional - Medical practitioner focused on patient care" 
                                  class="hero-portrait" 
                                  loading="eager">
                         </div>
                         <div class="carousel-slide">
-                            <img src="images/portraits/portrait-education.svg" 
+                            <img src="images/portraits/portrait-3.jpg" 
+                                 alt="Business professional - Executive leader in corporate environment" 
+                                 class="hero-portrait" 
+                                 loading="eager">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/portraits/portrait-4.jpg" 
+                                 alt="Engineering professional - Technical expert in innovative field" 
+                                 class="hero-portrait" 
+                                 loading="eager">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/portraits/portrait-5.jpg" 
+                                 alt="Creative professional - Designer working on innovative projects" 
+                                 class="hero-portrait" 
+                                 loading="eager">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/portraits/portrait-6.jpg" 
                                  alt="Education professional - Teacher inspiring the next generation" 
                                  class="hero-portrait" 
                                  loading="eager">
                         </div>
                         <div class="carousel-slide">
-                            <img src="images/portraits/portrait-trades.svg" 
+                            <img src="images/portraits/portrait-7.jpg" 
                                  alt="Skilled trades professional - Expert craftsperson building our world" 
                                  class="hero-portrait" 
                                  loading="eager">
                         </div>
                         <div class="carousel-slide">
-                            <img src="images/portraits/portrait-business.svg" 
-                                 alt="Business professional - Executive leader driving innovation" 
-                                 class="hero-portrait" 
-                                 loading="eager">
-                        </div>
-                        <!-- Duplicated portraits for seamless loop -->
-                        <div class="carousel-slide">
-                            <img src="images/portraits/portrait-tech.svg" 
-                                 alt="Technology professional - Software developer working in innovative tech environment" 
+                            <img src="images/portraits/portrait-8.jpg" 
+                                 alt="Finance professional - Analyst working with data and strategy" 
                                  class="hero-portrait" 
                                  loading="eager">
                         </div>
                         <div class="carousel-slide">
-                            <img src="images/portraits/portrait-healthcare.svg" 
-                                 alt="Healthcare professional - Medical practitioner dedicated to patient care" 
+                            <img src="images/portraits/portrait-9.jpg" 
+                                 alt="Research professional - Scientist advancing knowledge and innovation" 
                                  class="hero-portrait" 
                                  loading="eager">
                         </div>
                         <div class="carousel-slide">
-                            <img src="images/portraits/portrait-education.svg" 
-                                 alt="Education professional - Teacher inspiring the next generation" 
+                            <img src="images/portraits/portrait-10.jpg" 
+                                 alt="Communications professional - Media expert connecting with audiences" 
+                                 class="hero-portrait" 
+                                 loading="eager">
+                        </div>
+                        <!-- Duplicate first 5 images for seamless loop -->
+                        <div class="carousel-slide">
+                            <img src="images/portraits/portrait-1.jpg" 
+                                 alt="Technology professional - Software developer in modern workspace" 
                                  class="hero-portrait" 
                                  loading="eager">
                         </div>
                         <div class="carousel-slide">
-                            <img src="images/portraits/portrait-trades.svg" 
-                                 alt="Skilled trades professional - Expert craftsperson building our world" 
+                            <img src="images/portraits/portrait-2.jpg" 
+                                 alt="Healthcare professional - Medical practitioner focused on patient care" 
                                  class="hero-portrait" 
                                  loading="eager">
                         </div>
                         <div class="carousel-slide">
-                            <img src="images/portraits/portrait-business.svg" 
-                                 alt="Business professional - Executive leader driving innovation" 
+                            <img src="images/portraits/portrait-3.jpg" 
+                                 alt="Business professional - Executive leader in corporate environment" 
+                                 class="hero-portrait" 
+                                 loading="eager">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/portraits/portrait-4.jpg" 
+                                 alt="Engineering professional - Technical expert in innovative field" 
+                                 class="hero-portrait" 
+                                 loading="eager">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/portraits/portrait-5.jpg" 
+                                 alt="Creative professional - Designer working on innovative projects" 
                                  class="hero-portrait" 
                                  loading="eager">
                         </div>
@@ -214,9 +265,10 @@
             </div>
 
             <!-- Hero Content -->
-            <h1 id="event-title" class="hero-headline">myBlueprint Career Launch</h1>
-            <h2 class="event-date">December 2nd</h2>
-            <p class="student-count">Join 50,000+ students exploring career opportunities</p>
+            <h1 id="event-title" class="hero-headline">myBlueprint <span class="highlighted-text">Career Launch</span></h1>
+
+            <p class="student-count">A virtual career fair for Ontario high schools. 
+                <br/> Leave your email to be the first to know when the agenda is released.</p>
             <!-- Bento Grid Section -->
             <section class="bento-grid" role="region" aria-label="Event details and information">
                 <!-- Event Details Card (Left - 1/3) -->
@@ -250,8 +302,8 @@
                             </svg>
                         </div>
                         <div class="event-detail-content">
-                            <div class="event-detail-title">50,000+ Students</div>
-                            <div class="event-detail-subtitle">From up to 72 school boards across Ontario</div>
+                            <div class="event-detail-title">25+ Sessions</div>
+                            <div class="event-detail-subtitle">From a hand-picked selection of professionals across Ontario</div>
                         </div>
                     </div>
                     
@@ -266,38 +318,41 @@
                         </div>
                         <div class="event-detail-content">
                             <div class="event-detail-title">Virtual Format</div>
-                            <div class="event-detail-subtitle">Accessible from anywhere, with recordings shared to our community of 1+ million students nationally</div>
+                            <div class="event-detail-subtitle">Accessible from anywhere, with recordings available in myBlueprint</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Resources -->
+                    <div class="event-detail-item">
+                        <div class="event-detail-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2"/>
+                                <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2"/>
+                                <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="event-detail-content">
+                            <div class="event-detail-title">Resources to Support Reflection</div>
+                            <div class="event-detail-subtitle">myBlueprint created activities to engage students with pre/during/post session reflection</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Content Container (2/3) -->
-                <div class="bento-right-column">
-                    <!-- About Text Card -->
-                    <div class="bento-card content-card" role="article" aria-labelledby="about-content-title">
-                        <div class="content-text">
-                            <p><strong>About 50% of today's students expect to work in just 10 traditional jobs</strong> - doctor, teacher, lawyer, engineer - while career opportunities have never been more diverse. The OECD's landmark research shows that 'you cannot be what you cannot see,' and <a href="#" class="content-link">right now, students aren't seeing your industry</a>.</p>
-                            
-                            <p>With career uncertainty at an all-time high and student expectations 3x greater than actual job demand in professional fields, young people need your voice. Research proves that direct employer engagement leads to better employment outcomes at age 25.</p>
-                            
-                            <p>Speak at the <strong class="brand-highlight">myBlueprint Career Launch</strong> to help Ontario's students discover the meaningful careers, emerging technologies, and non-traditional pathways that exist in your sector.</p>
-                        </div>
-                    </div>
-
-                    <!-- YouTube Video Card -->
-                    <div class="bento-card bento-card-video" role="article" aria-labelledby="video-title">
-                        <h3 id="video-title" class="visually-hidden">myBlueprint Career Launch Preview Video</h3>
-                        <div class="video-container">
-                            <iframe 
-                                src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" 
-                                title="myBlueprint Career Launch - Event Preview"
-                                frameborder="0" 
-                                allowfullscreen
-                                loading="lazy"
-                                referrerpolicy="strict-origin-when-cross-origin"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-                            </iframe>
-                        </div>
+                <!-- YouTube Video Card -->
+                <div class="bento-card bento-card-video" role="article" aria-labelledby="video-title">
+                    <h3 id="video-title" class="video-card-title">What the OECD Says About Career Fairs</h3>
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/2UBSs0yvyKY" 
+                            title="The Value of a Career Fair"
+                            frameborder="0" 
+                            allowfullscreen
+                            loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+                        </iframe>
                     </div>
                 </div>
             </section>
@@ -330,6 +385,21 @@
             </form>
         </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer-bar">
+        <div class="footer-content">
+            <span class="footer-text">Reach out to </span>
+            <a href="mailto:damian.matheson@myblueprint.ca" 
+               class="footer-link">damian.matheson@myblueprint.ca</a>
+            <span class="footer-text">&nbsp;with any questions or speaker suggestions | © 2025 myBlueprint Career Launch. </span>
+            <a href="https://myblueprint.ca/" 
+               class="footer-link" 
+               target="_blank" 
+               rel="noopener noreferrer">myBlueprint</a>
+            <span class="footer-text">&nbsp;Special Projects.</span>
+        </div>
+    </footer>
 
     <!-- JavaScript -->
     <script src="js/validation.js"></script>
