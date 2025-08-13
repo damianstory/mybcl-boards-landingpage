@@ -28,32 +28,33 @@
         max-width: 100%;
     }
     
-    /* Hero Portraits - Mobile Layout */
+    /* Hero Portraits Slider - Mobile Layout */
     .hero-portraits {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-        margin-bottom: 32px;
-        padding: 0 10px;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 32px;
     }
     
     .hero-portrait {
-        width: 100px;
-        height: 100px;
-        border-radius: 8px;
+        width: 150px;
+        height: 150px;
+        border-radius: 12px;
+        border-width: 3px;
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 4px 12px rgba(0, 146, 255, 0.15),
+            0 0 0 3px rgba(0, 146, 255, 0.2),
+            0 0 15px rgba(0, 146, 255, 0.1);
     }
     
-    .portrait-container.portrait-center {
-        order: -1;
-        margin-bottom: 8px;
-        flex-basis: 100%;
-        display: flex;
-        justify-content: center;
+    /* Hide indicators on mobile for cleaner look */
+    .slider-indicators {
+        display: none;
     }
     
-    .portrait-container.portrait-center .hero-portrait {
-        width: 110px;
-        height: 110px;
+    /* Reduce glow animation intensity on mobile for performance */
+    .slide.active .hero-portrait {
+        animation: none;
     }
     
     /* Typography - Mobile sizes */
@@ -152,21 +153,27 @@
         padding: 80px 40px 40px;
     }
     
-    /* Hero Portraits - Tablet Layout */
+    /* Hero Portraits Slider - Tablet Layout */
     .hero-portraits {
-        gap: -15px;
-        margin-bottom: 40px;
+        width: 180px;
+        height: 180px;
+        margin: 0 auto 40px;
     }
     
     .hero-portrait {
-        width: 120px;
-        height: 120px;
-        border-radius: 10px;
+        width: 180px;
+        height: 180px;
+        border-radius: 14px;
+        box-shadow: 
+            0 10px 36px rgba(0, 0, 0, 0.32),
+            0 4px 14px rgba(0, 146, 255, 0.15),
+            0 0 0 3px rgba(0, 146, 255, 0.2),
+            0 0 18px rgba(0, 146, 255, 0.1);
     }
     
-    .portrait-container.portrait-center .hero-portrait {
-        width: 130px;
-        height: 130px;
+    /* Show indicators on tablet and above */
+    .slider-indicators {
+        display: flex;
     }
     
     /* Typography - Tablet sizes */

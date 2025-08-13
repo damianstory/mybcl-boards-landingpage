@@ -147,22 +147,62 @@
     <!-- Main Content -->
     <main role="main" class="main-container">
         <section aria-labelledby="event-title">
-            <!-- Hero Portraits Row -->
-            <div class="hero-portraits" role="img" aria-label="Career professionals from various industries">
-                <div class="portrait-container">
-                    <img src="images/portraits/portrait-tech.svg" alt="Technology professional - Software developer working in innovative tech environment" class="hero-portrait" loading="eager">
+            <!-- Hero Portraits Slider -->
+            <div class="hero-portraits" 
+                 role="region" 
+                 aria-label="Career professionals slideshow" 
+                 aria-roledescription="carousel" 
+                 aria-live="polite">
+                <div class="slider-track">
+                    <div class="slide" data-slide="0">
+                        <div class="portrait-container">
+                            <img src="images/portraits/portrait-tech.svg" 
+                                 alt="Technology professional - Software developer working in innovative tech environment" 
+                                 class="hero-portrait" 
+                                 loading="eager">
+                        </div>
+                    </div>
+                    <div class="slide" data-slide="1">
+                        <div class="portrait-container">
+                            <img src="images/portraits/portrait-healthcare.svg" 
+                                 alt="Healthcare professional - Medical practitioner dedicated to patient care" 
+                                 class="hero-portrait" 
+                                 loading="eager">
+                        </div>
+                    </div>
+                    <div class="slide" data-slide="2">
+                        <div class="portrait-container">
+                            <img src="images/portraits/portrait-education.svg" 
+                                 alt="Education professional - Teacher inspiring the next generation" 
+                                 class="hero-portrait" 
+                                 loading="eager">
+                        </div>
+                    </div>
+                    <div class="slide" data-slide="3">
+                        <div class="portrait-container">
+                            <img src="images/portraits/portrait-trades.svg" 
+                                 alt="Skilled trades professional - Expert craftsperson building our world" 
+                                 class="hero-portrait" 
+                                 loading="eager">
+                        </div>
+                    </div>
+                    <div class="slide" data-slide="4">
+                        <div class="portrait-container">
+                            <img src="images/portraits/portrait-business.svg" 
+                                 alt="Business professional - Executive leader driving innovation" 
+                                 class="hero-portrait" 
+                                 loading="eager">
+                        </div>
+                    </div>
                 </div>
-                <div class="portrait-container">
-                    <img src="images/portraits/portrait-healthcare.svg" alt="Healthcare professional - Medical practitioner dedicated to patient care" class="hero-portrait" loading="eager">
-                </div>
-                <div class="portrait-container portrait-center">
-                    <img src="images/portraits/portrait-education.svg" alt="Education professional - Teacher inspiring the next generation" class="hero-portrait" loading="eager">
-                </div>
-                <div class="portrait-container">
-                    <img src="images/portraits/portrait-trades.svg" alt="Skilled trades professional - Expert craftsperson building our world" class="hero-portrait" loading="eager">
-                </div>
-                <div class="portrait-container">
-                    <img src="images/portraits/portrait-business.svg" alt="Business professional - Executive leader driving innovation" class="hero-portrait" loading="eager">
+                
+                <!-- Slider indicators (optional, hidden by default) -->
+                <div class="slider-indicators" aria-hidden="true">
+                    <div class="indicator" data-slide-to="0"></div>
+                    <div class="indicator" data-slide-to="1"></div>
+                    <div class="indicator" data-slide-to="2"></div>
+                    <div class="indicator" data-slide-to="3"></div>
+                    <div class="indicator" data-slide-to="4"></div>
                 </div>
             </div>
 

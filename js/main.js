@@ -3,9 +3,189 @@
  * Handles form submission, Zoho API integration, and user interactions
  */
 
+/**
+ * Hero Portraits Slider Class
+ * Handles auto-cycling image slider with fade transitions
+ */
+class HeroSlider {
+    constructor() {
+        this.currentSlide = 0;
+        this.slides = document.querySelectorAll('.slide');
+        this.indicators = document.querySelectorAll('.indicator');
+        this.totalSlides = this.slides.length;
+        this.interval = null;
+        this.duration = 3500; // 3.5 seconds
+        this.isPaused = false;
+        
+        this.init();
+    }
+    
+    init() {
+        if (this.totalSlides === 0) {
+            console.warn('No slides found for hero slider');
+            return;
+        }
+        
+        // Show first slide and indicator
+        this.showSlide(0);
+        
+        // Start auto-cycling after initial page animations
+        setTimeout(() => {
+            this.startAutoSlide();
+        }, 2000); // Wait for page load animations
+        
+        // Setup hover pause (desktop only)
+        this.setupHoverPause();
+        
+        // Setup indicator clicks
+        this.setupIndicators();
+        
+        // Preload all images
+        this.preloadImages();
+    }
+    
+    showSlide(index) {
+        // Hide all slides
+        this.slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            slide.setAttribute('aria-hidden', 'true');
+        });
+        
+        // Hide all indicators
+        this.indicators.forEach((indicator) => {
+            indicator.classList.remove('active');
+        });
+        
+        // Show target slide
+        if (this.slides[index]) {
+            this.slides[index].classList.add('active');
+            this.slides[index].setAttribute('aria-hidden', 'false');
+            
+            // Update current slide index
+            this.currentSlide = index;
+            
+            // Show corresponding indicator
+            if (this.indicators[index]) {
+                this.indicators[index].classList.add('active');
+            }
+            
+            // Update aria-label for accessibility
+            const container = document.querySelector('.hero-portraits');
+            const currentAlt = this.slides[index].querySelector('img')?.alt || 'Career professional';
+            if (container) {
+                container.setAttribute('aria-label', `Career professionals slideshow - Currently showing: ${currentAlt}`);
+            }
+        }
+    }
+    
+    nextSlide() {
+        if (this.isPaused) return;
+        
+        const nextIndex = (this.currentSlide + 1) % this.totalSlides;
+        this.showSlide(nextIndex);
+    }
+    
+    goToSlide(index) {
+        if (index >= 0 && index < this.totalSlides) {
+            this.showSlide(index);
+        }
+    }
+    
+    startAutoSlide() {
+        if (this.interval) {
+            clearInterval(this.interval);
+        }
+        
+        this.interval = setInterval(() => {
+            this.nextSlide();
+        }, this.duration);
+    }
+    
+    pauseSlider() {
+        this.isPaused = true;
+        if (this.interval) {
+            clearInterval(this.interval);
+            this.interval = null;
+        }
+    }
+    
+    resumeSlider() {
+        this.isPaused = false;
+        this.startAutoSlide();
+    }
+    
+    setupHoverPause() {
+        const container = document.querySelector('.hero-portraits');
+        if (!container) return;
+        
+        // Only enable hover pause on devices that support hover
+        if (window.matchMedia('(hover: hover)').matches) {
+            container.addEventListener('mouseenter', () => {
+                this.pauseSlider();
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                this.resumeSlider();
+            });
+        }
+    }
+    
+    setupIndicators() {
+        this.indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                this.goToSlide(index);
+                
+                // Restart timer after manual interaction
+                if (!this.isPaused) {
+                    this.startAutoSlide();
+                }
+            });
+            
+            // Keyboard accessibility
+            indicator.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.goToSlide(index);
+                    
+                    if (!this.isPaused) {
+                        this.startAutoSlide();
+                    }
+                }
+            });
+        });
+    }
+    
+    preloadImages() {
+        this.slides.forEach(slide => {
+            const img = slide.querySelector('img');
+            if (img && !img.complete) {
+                // Create a new image to preload
+                const preloadImg = new Image();
+                preloadImg.src = img.src;
+            }
+        });
+    }
+    
+    // Public method to destroy slider (cleanup)
+    destroy() {
+        if (this.interval) {
+            clearInterval(this.interval);
+            this.interval = null;
+        }
+        
+        // Remove event listeners
+        const container = document.querySelector('.hero-portraits');
+        if (container) {
+            container.removeEventListener('mouseenter', this.pauseSlider);
+            container.removeEventListener('mouseleave', this.resumeSlider);
+        }
+    }
+}
+
 class CareerLaunchApp {
     constructor() {
         this.validator = new FormValidator();
+        this.heroSlider = null;
         this.isSubmitting = false;
         this.retryCount = 0;
         this.maxRetries = 3;
@@ -48,6 +228,9 @@ class CareerLaunchApp {
             console.error('Required form elements not found');
             return;
         }
+
+        // Initialize hero slider
+        this.heroSlider = new HeroSlider();
 
         // Setup form validation
         this.validator.attachRealTimeValidation(emailInput, errorElement);
