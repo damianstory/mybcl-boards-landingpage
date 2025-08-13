@@ -73,17 +73,30 @@ class BuildOptimizer {
     async copyStaticFiles() {
         console.log('📋 Copying static files...');
         
-        // Copy images
-        const imageFiles = fs.readdirSync('images');
-        imageFiles.forEach(file => {
-            fs.copyFileSync(
-                path.join('images', file),
-                path.join(this.buildDir, 'images', file)
-            );
-        });
+        // Copy images recursively
+        this.copyDirectory('images', path.join(this.buildDir, 'images'));
 
         // Copy package.json
         fs.copyFileSync('package.json', path.join(this.buildDir, 'package.json'));
+    }
+
+    copyDirectory(src, dest) {
+        if (!fs.existsSync(dest)) {
+            fs.mkdirSync(dest, { recursive: true });
+        }
+
+        const items = fs.readdirSync(src);
+        items.forEach(item => {
+            const srcPath = path.join(src, item);
+            const destPath = path.join(dest, item);
+            
+            const stat = fs.statSync(srcPath);
+            if (stat.isDirectory()) {
+                this.copyDirectory(srcPath, destPath);
+            } else {
+                fs.copyFileSync(srcPath, destPath);
+            }
+        });
     }
 
     async optimizeHTML() {
