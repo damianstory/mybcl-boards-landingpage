@@ -44,11 +44,20 @@
         }
 
         body {
-            background: linear-gradient(
-                135deg,
-                rgba(34, 36, 76, 0.7) 0%,
-                rgba(34, 36, 76, 0.5) 100%
-            ), url('images/bg-placeholder.svg') center/cover no-repeat fixed;
+            background: 
+                linear-gradient(
+                    135deg,
+                    rgba(26, 29, 41, 0.85) 0%,
+                    rgba(34, 36, 76, 0.75) 50%,
+                    rgba(37, 42, 51, 0.85) 100%
+                ),
+                radial-gradient(
+                    ellipse at center 40%,
+                    rgba(0, 146, 255, 0.08) 0%,
+                    rgba(34, 34, 76, 0.15) 50%,
+                    transparent 70%
+                ),
+                url('images/bg-enhanced.svg') center/cover no-repeat fixed;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -138,6 +147,25 @@
     <!-- Main Content -->
     <main role="main" class="main-container">
         <section aria-labelledby="event-title">
+            <!-- Hero Portraits Row -->
+            <div class="hero-portraits" role="img" aria-label="Career professionals from various industries">
+                <div class="portrait-container">
+                    <img src="images/portraits/portrait-tech.svg" alt="Technology professional - Software developer working in innovative tech environment" class="hero-portrait" loading="eager">
+                </div>
+                <div class="portrait-container">
+                    <img src="images/portraits/portrait-healthcare.svg" alt="Healthcare professional - Medical practitioner dedicated to patient care" class="hero-portrait" loading="eager">
+                </div>
+                <div class="portrait-container portrait-center">
+                    <img src="images/portraits/portrait-education.svg" alt="Education professional - Teacher inspiring the next generation" class="hero-portrait" loading="eager">
+                </div>
+                <div class="portrait-container">
+                    <img src="images/portraits/portrait-trades.svg" alt="Skilled trades professional - Expert craftsperson building our world" class="hero-portrait" loading="eager">
+                </div>
+                <div class="portrait-container">
+                    <img src="images/portraits/portrait-business.svg" alt="Business professional - Executive leader driving innovation" class="hero-portrait" loading="eager">
+                </div>
+            </div>
+
             <!-- Hero Content -->
             <h1 id="event-title" class="hero-headline">myBlueprint Career Launch</h1>
             <h2 class="event-date">December 2nd</h2>
