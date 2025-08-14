@@ -1,0 +1,125 @@
+/* ================================
+   FOOTER COMPONENT
+   Fixed bottom footer with contact and copyright information
+   ================================ */
+
+.footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(217, 223, 234, 0.4);
+    padding: 12px 0;
+    z-index: var(--z-content);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.footer-text {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--neutral-4);
+    margin-right: 4px;
+}
+
+.footer-link {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.footer-link:hover {
+    color: #0078CC;
+    text-decoration: underline;
+}
+
+.footer-link:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* ================================
+   FOOTER RESPONSIVE DESIGN
+   ================================ */
+
+/* Mobile (320px - 767px) */
+@media (max-width: 767px) {
+    .footer-content {
+        padding: 0 16px;
+        flex-wrap: wrap;
+        text-align: center;
+        gap: 2px;
+        line-height: 1.4;
+    }
+    
+    .footer-text,
+    .footer-link {
+        font-size: 12px;
+    }
+    
+    /* Stack footer content for very small screens */
+    @media (max-width: 480px) {
+        .footer-content {
+            flex-direction: column;
+            gap: 4px;
+            padding: 8px 16px;
+        }
+        
+        .footer-bar {
+            padding: 8px 0;
+        }
+        
+        .footer-text {
+            margin-right: 0;
+        }
+    }
+}
+
+/* Tablet and larger */
+@media (min-width: 768px) {
+    .footer-content {
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+}
+
+/* ================================
+   FOOTER ACCESSIBILITY
+   ================================ */
+
+/* Ensure proper touch targets on mobile */
+@media (pointer: coarse) {
+    .footer-link {
+        min-height: 32px;
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 2px;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .footer-bar {
+        border-top-width: 2px;
+        background: rgba(255, 255, 255, 1);
+    }
+    
+    .footer-text {
+        color: var(--neutral-6);
+    }
+}

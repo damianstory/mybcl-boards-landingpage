@@ -1,0 +1,31 @@
+<!-- Hero Content -->
+<h1 id="event-title" class="hero-headline">myBlueprint <span class="highlighted-text">Career Launch</span></h1>
+
+<p class="student-count">A virtual career fair for Ontario high schools.<br/>Leave your email to be the first to know when the agenda&nbsp;is&nbsp;released.</p>
+
+<!-- Email Capture Form -->
+<form id="email-form" class="email-form" aria-label="Email signup form" role="form" novalidate>
+    <div class="form-container">
+        <div class="form-group">
+            <label for="email" class="form-label visually-hidden">Email Address</label>
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="form-input" 
+                placeholder="Enter your email address"
+                required 
+                aria-describedby="email-error"
+                autocomplete="email"
+            >
+            <button type="submit" class="cta-button">
+                <span class="button-text">Sign Up</span>
+                <span class="loading-spinner" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div id="email-error" class="form-error" role="alert" aria-live="polite"></div>
+    </div>
+    
+    <!-- Success/Error Messages -->
+    <div id="form-messages" class="form-messages" role="status" aria-live="polite" aria-atomic="true"></div>
+</form>

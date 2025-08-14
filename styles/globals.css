@@ -1,0 +1,223 @@
+/* ================================
+   myBlueprint Career Launch - Global Styles
+   Brand colors, reset, fonts, and shared utilities
+   ================================ */
+
+/* CSS Custom Properties - Brand Colors */
+:root {
+    /* Primary Colors */
+    --primary-blue: #0092FF;
+    --navy: #22224C;
+    --light-blue: #C6E7FF;
+    --off-white: #F6F6FF;
+    
+    /* Neutrals */
+    --neutral-1: #E5E9F1;
+    --neutral-2: #D9DFEA;
+    --neutral-3: #AAB7CB;
+    --neutral-4: #65738B;
+    --neutral-5: #485163;
+    --neutral-6: #252A33;
+    
+    /* Typography */
+    --font-primary: 'Museo Sans', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-fallback: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    
+    /* Z-index layers */
+    --z-background: 1;
+    --z-overlay: 2;
+    --z-content: 3;
+    --z-form: 4;
+    --z-loading: 5;
+}
+
+/* ================================
+   BASE STYLES & RESET
+   ================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.5;
+    color: var(--neutral-4);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    
+    /* Background */
+    background: 
+        linear-gradient(
+            135deg,
+            rgba(26, 29, 41, 0.85) 0%,
+            rgba(34, 36, 76, 0.75) 50%,
+            rgba(37, 42, 51, 0.85) 100%
+        ),
+        radial-gradient(
+            ellipse at center 40%,
+            rgba(0, 146, 255, 0.08) 0%,
+            rgba(34, 34, 76, 0.15) 50%,
+            transparent 70%
+        ),
+        url('../images/bg-enhanced.svg') center/cover no-repeat fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* ================================
+   RESPONSIVE UTILITIES
+   ================================ */
+
+/* Ensure all elements have proper responsive behavior */
+img, video, canvas, audio, iframe, embed, object {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive text containers */
+.responsive-text {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+}
+
+/* Container utilities */
+.container-fluid {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Touch target utilities for mobile */
+.touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Apply touch standards ONLY to form elements, not all links */
+button, input, select, textarea, [role="button"] {
+    touch-action: manipulation;
+}
+
+/* ================================
+   MAIN CONTAINER
+   ================================ */
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 0px 24px 48px;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+    z-index: var(--z-content);
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* ================================
+   HIGHLIGHTER EFFECT FOR CAREER LAUNCH
+   ================================ */
+
+.highlighted-text {
+    position: relative;
+    display: inline-block;
+    padding: 2px 8px;
+    color: inherit;
+}
+
+.highlighted-text::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: -2px;
+    right: -8px;
+    bottom: -10%;
+    background: var(--primary-blue);
+    opacity: 0.9;
+    z-index: -1;
+    border-radius: 300px 15px 280px 20px / 15px 280px 20px 300px;
+    transform: rotate(0deg);
+}
+
+/* ================================
+   ACCESSIBILITY ENHANCEMENTS
+   ================================ */
+
+/* Visually hidden utility */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Focus indicators for keyboard navigation */
+a:focus,
+button:focus,
+input:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .form-input {
+        border-width: 3px;
+    }
+    
+    .cta-button {
+        border: 2px solid #FFFFFF;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .hero-headline,
+    .supporting-text {
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+}

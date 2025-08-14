@@ -78,6 +78,11 @@ class BuildOptimizer {
 
         // Copy package.json
         fs.copyFileSync('package.json', path.join(this.buildDir, 'package.json'));
+        
+        // Copy component directories to build
+        if (fs.existsSync('components')) {
+            this.copyDirectory('components', path.join(this.buildDir, 'components'));
+        }
     }
 
     copyDirectory(src, dest) {
@@ -100,9 +105,12 @@ class BuildOptimizer {
     }
 
     async optimizeHTML() {
-        console.log('📄 Optimizing HTML...');
+        console.log('📄 Optimizing HTML and assembling components...');
         
         let html = fs.readFileSync('index.html', 'utf8');
+        
+        // Assemble components into main HTML
+        html = await this.assembleComponents(html);
 
         // Minify HTML (basic optimization)
         html = html
@@ -115,7 +123,7 @@ class BuildOptimizer {
 
         // Update paths for production
         html = html.replace(
-            'url(\'images/bg-placeholder.svg\')',
+            'url(\'images/bg-enhanced.svg\')',
             'url(\'images/bg-hero.webp\'), url(\'images/bg-hero.jpg\')'
         );
 
@@ -124,6 +132,7 @@ class BuildOptimizer {
         html = html
             .replace(/href="styles\//g, `href="styles/`)
             .replace(/src="js\//g, `src="js/`)
+            .replace(/globals\.css"/g, `globals.css?v=${timestamp}"`)
             .replace(/main\.css"/g, `main.css?v=${timestamp}"`)
             .replace(/responsive\.css"/g, `responsive.css?v=${timestamp}"`)
             .replace(/main\.js"/g, `main.js?v=${timestamp}"`)
@@ -131,48 +140,131 @@ class BuildOptimizer {
 
         fs.writeFileSync(path.join(this.buildDir, 'index.html'), html);
     }
+    
+    async assembleComponents(html) {
+        // This would be where component assembly happens
+        // For now, we'll keep the existing HTML structure
+        // but this method allows for future component assembly
+        
+        console.log('  - Keeping existing component structure in HTML');
+        return html;
+    }
 
     async optimizeCSS() {
-        console.log('🎨 Optimizing CSS...');
+        console.log('🎨 Optimizing CSS and combining components...');
         
-        // Optimize main.css
-        let mainCSS = fs.readFileSync('styles/main.css', 'utf8');
-        mainCSS = this.minifyCSS(mainCSS);
+        // Combine component CSS files
+        let combinedCSS = '';
+        
+        // Start with global styles
+        if (fs.existsSync('styles/globals.css')) {
+            console.log('  - Adding globals.css');
+            combinedCSS += fs.readFileSync('styles/globals.css', 'utf8') + '\n\n';
+        }
+        
+        // Add component styles
+        const componentCSS = [
+            'styles/components/slider.css',
+            'styles/components/hero.css',
+            'styles/components/bento.css',
+            'styles/components/footer.css'
+        ];
+        
+        componentCSS.forEach(cssFile => {
+            if (fs.existsSync(cssFile)) {
+                console.log(`  - Adding ${cssFile}`);
+                const content = fs.readFileSync(cssFile, 'utf8');
+                combinedCSS += `/* ${cssFile} */\n${content}\n\n`;
+            }
+        });
+        
+        // Add legacy main.css and responsive.css if they exist
+        if (fs.existsSync('styles/main.css')) {
+            console.log('  - Adding remaining main.css styles');
+            const mainCSS = fs.readFileSync('styles/main.css', 'utf8');
+            combinedCSS += `/* Legacy main.css */\n${mainCSS}\n\n`;
+        }
+        
+        if (fs.existsSync('styles/responsive.css')) {
+            console.log('  - Adding remaining responsive.css styles');
+            const responsiveCSS = fs.readFileSync('styles/responsive.css', 'utf8');
+            combinedCSS += `/* Legacy responsive.css */\n${responsiveCSS}\n\n`;
+        }
         
         // Update background image paths for production
-        mainCSS = mainCSS.replace(
-            'url(\'../images/bg-placeholder.svg\')',
+        combinedCSS = combinedCSS.replace(
+            /url\(['"]?\.\.\/images\/bg-enhanced\.svg['"]?\)/g,
             'url(\'../images/bg-hero.webp\')'
         );
-
-        // Optimize responsive.css
-        let responsiveCSS = fs.readFileSync('styles/responsive.css', 'utf8');
-        responsiveCSS = this.minifyCSS(responsiveCSS);
-
-        fs.writeFileSync(path.join(this.buildDir, 'styles', 'main.css'), mainCSS);
-        fs.writeFileSync(path.join(this.buildDir, 'styles', 'responsive.css'), responsiveCSS);
+        
+        // Minify combined CSS
+        const minifiedCSS = this.minifyCSS(combinedCSS);
+        
+        // Write the combined CSS file
+        fs.writeFileSync(path.join(this.buildDir, 'styles', 'main.css'), minifiedCSS);
+        
+        // Also write globals.css separately for development
+        if (fs.existsSync('styles/globals.css')) {
+            const globalsCSS = this.minifyCSS(fs.readFileSync('styles/globals.css', 'utf8'));
+            fs.writeFileSync(path.join(this.buildDir, 'styles', 'globals.css'), globalsCSS);
+        }
     }
 
     async optimizeJS() {
-        console.log('⚡ Optimizing JavaScript...');
+        console.log('⚡ Optimizing JavaScript and combining components...');
+        
+        // Copy component JS files to build/js/components
+        if (!fs.existsSync(path.join(this.buildDir, 'js', 'components'))) {
+            fs.mkdirSync(path.join(this.buildDir, 'js', 'components'), { recursive: true });
+        }
+        
+        // Component JS files
+        const componentJS = [
+            'js/components/slider.js',
+            'js/components/hero.js',
+            'js/components/bento.js',
+            'js/components/footer.js'
+        ];
+        
+        componentJS.forEach(jsFile => {
+            if (fs.existsSync(jsFile)) {
+                console.log(`  - Optimizing ${jsFile}`);
+                let content = fs.readFileSync(jsFile, 'utf8');
+                
+                // Replace development config with production config
+                content = content.replace(
+                    'process.env.ZOHO_ENDPOINT || \'https://api.zoho.com/crm/v2/Leads\'',
+                    '\'https://www.zohoapis.com/crm/v2/Leads\''
+                );
+                
+                const minified = this.minifyJS(content);
+                const outputPath = path.join(this.buildDir, jsFile);
+                fs.writeFileSync(outputPath, minified);
+            }
+        });
         
         // Optimize validation.js
-        let validationJS = fs.readFileSync('js/validation.js', 'utf8');
-        validationJS = this.minifyJS(validationJS);
+        if (fs.existsSync('js/validation.js')) {
+            console.log('  - Optimizing validation.js');
+            let validationJS = fs.readFileSync('js/validation.js', 'utf8');
+            validationJS = this.minifyJS(validationJS);
+            fs.writeFileSync(path.join(this.buildDir, 'js', 'validation.js'), validationJS);
+        }
 
         // Optimize main.js and inject production config
-        let mainJS = fs.readFileSync('js/main.js', 'utf8');
-        
-        // Replace development config with production config
-        mainJS = mainJS.replace(
-            'process.env.ZOHO_ENDPOINT || \'https://api.zoho.com/crm/v2/Leads\'',
-            '\'https://www.zohoapis.com/crm/v2/Leads\''
-        );
-        
-        mainJS = this.minifyJS(mainJS);
-
-        fs.writeFileSync(path.join(this.buildDir, 'js', 'validation.js'), validationJS);
-        fs.writeFileSync(path.join(this.buildDir, 'js', 'main.js'), mainJS);
+        if (fs.existsSync('js/main.js')) {
+            console.log('  - Optimizing main.js');
+            let mainJS = fs.readFileSync('js/main.js', 'utf8');
+            
+            // Replace development config with production config
+            mainJS = mainJS.replace(
+                'process.env.ZOHO_ENDPOINT || \'https://api.zoho.com/crm/v2/Leads\'',
+                '\'https://www.zohoapis.com/crm/v2/Leads\''
+            );
+            
+            mainJS = this.minifyJS(mainJS);
+            fs.writeFileSync(path.join(this.buildDir, 'js', 'main.js'), mainJS);
+        }
     }
 
     minifyCSS(css) {

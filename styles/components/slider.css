@@ -1,0 +1,220 @@
+/* ================================
+   HERO PORTRAITS CAROUSEL COMPONENT
+   Independent responsive slider with animations
+   ================================ */
+
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 100px;
+    margin: 0px auto 32px;
+    opacity: 1;
+    animation: carouselFadeIn 1.5s ease-out 0.3s forwards;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.carousel-track {
+    display: flex;
+    width: calc(120px * 20); /* 20 total slides (10 unique + 10 duplicates) */
+    height: 100%;
+    animation: carouselScroll 40s linear infinite;
+    will-change: transform;
+}
+
+.carousel-slide {
+    flex: 0 0 120px; /* 100px portrait + 20px gap */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 20px;
+}
+
+.carousel-slide:last-child {
+    padding-right: 0;
+}
+
+.hero-portrait {
+    width: 100px;
+    height: 100px;
+    border-radius: 16px;
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.35),
+        0 4px 16px rgba(0, 146, 255, 0.15),
+        0 0 0 4px rgba(0, 146, 255, 0.2),
+        0 0 20px rgba(0, 146, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(1.02) contrast(1.08);
+    border: 4px solid rgba(0, 146, 255, 0.25);
+    object-fit: cover;
+}
+
+/* Edge gradient overlays */
+.carousel-gradient {
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.carousel-gradient-left {
+    left: 0;
+    background: linear-gradient(
+        to right,
+        rgba(26, 29, 41, 0.8) 0%,
+        rgba(26, 29, 41, 0.4) 50%,
+        transparent 100%
+    );
+}
+
+.carousel-gradient-right {
+    right: 0;
+    background: linear-gradient(
+        to left,
+        rgba(26, 29, 41, 0.8) 0%,
+        rgba(26, 29, 41, 0.4) 50%,
+        transparent 100%
+    );
+}
+
+/* ================================
+   SLIDER ANIMATIONS
+   ================================ */
+
+/* Continuous scrolling animation for 10 unique images */
+@keyframes carouselScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-120px * 10)); /* Move by all 10 slides for complete cycle */
+    }
+}
+
+@keyframes carouselFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ================================
+   SLIDER RESPONSIVE DESIGN
+   ================================ */
+
+/* Mobile (320px - 767px) */
+@media (max-width: 767px) {
+    .hero-carousel {
+        height: 150px;
+        margin: 20px auto 32px;
+        max-width: 100%;
+    }
+    
+    .carousel-track {
+        width: calc(170px * 10); /* 10 slides with smaller portraits */
+        animation: carouselScrollMobile 18s linear infinite;
+    }
+    
+    .carousel-slide {
+        flex: 0 0 170px; /* 150px portrait + 20px gap */
+        padding-right: 20px;
+    }
+    
+    .hero-portrait {
+        width: 150px;
+        height: 150px;
+        border-radius: 12px;
+        border-width: 3px;
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 4px 12px rgba(0, 146, 255, 0.15),
+            0 0 0 3px rgba(0, 146, 255, 0.2),
+            0 0 15px rgba(0, 146, 255, 0.1);
+    }
+    
+    /* Mobile scrolling animation */
+    @keyframes carouselScrollMobile {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-170px * 5));
+        }
+    }
+}
+
+/* Tablet Large (850px - 1023px) */
+@media (min-width: 850px) and (max-width: 1023px) {
+    .hero-carousel {
+        height: 180px;
+        margin: 23px auto 40px;
+        max-width: 900px;
+    }
+    
+    .carousel-track {
+        width: calc(200px * 10); /* 10 slides with medium portraits */
+        animation: carouselScrollTablet 19s linear infinite;
+    }
+    
+    .carousel-slide {
+        flex: 0 0 200px; /* 180px portrait + 20px gap */
+        padding-right: 20px;
+    }
+    
+    .hero-portrait {
+        width: 180px;
+        height: 180px;
+        border-radius: 14px;
+        box-shadow: 
+            0 10px 36px rgba(0, 0, 0, 0.32),
+            0 4px 14px rgba(0, 146, 255, 0.15),
+            0 0 0 3px rgba(0, 146, 255, 0.2),
+            0 0 18px rgba(0, 146, 255, 0.1);
+    }
+    
+    /* Tablet scrolling animation */
+    @keyframes carouselScrollTablet {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-200px * 5));
+        }
+    }
+}
+
+/* ================================
+   SLIDER HOVER EFFECTS
+   ================================ */
+
+/* Enhanced hover effects for desktop */
+@media (hover: hover) {
+    .hero-carousel:hover .carousel-track {
+        animation-play-state: paused;
+    }
+    
+    .carousel-slide:hover .hero-portrait {
+        transform: scale(1.05);
+        box-shadow: 
+            0 16px 50px rgba(0, 0, 0, 0.4),
+            0 6px 20px rgba(0, 146, 255, 0.25),
+            0 0 0 4px rgba(0, 146, 255, 0.35),
+            0 0 30px rgba(0, 146, 255, 0.2);
+        filter: brightness(1.08) contrast(1.12);
+        border-color: rgba(0, 146, 255, 0.4);
+    }
+}
